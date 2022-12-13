@@ -1,0 +1,150 @@
+.headingCards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 40px 0px 20px;
+  margin-bottom: 15px;
+}
+.categoriesContainer{
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.categoriesContainer h2 {
+  color: var(--second-color);
+  text-align: left;
+  width: 94.7%;
+  padding-bottom: 5px;
+}
+
+.categoriesCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 94.7%;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.categoriesCard div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 0px 0px 10px 10px;
+  padding-bottom: 10px;
+}
+
+#categoriesCard__select__3 div, #categoriesCard__select__2 div, 
+#categoriesCard__select__1 div, #categoriesCard__select__4 div {
+  transition: .7s;
+  color: white;
+  padding-bottom: 0px;
+  border-bottom: 10px solid white;
+}
+
+#categoriesCard__select__2 div, #categoriesCard__select__1 div,
+ #categoriesCard__select__3 div, #categoriesCard__select__4 div{
+  background-color: var(--third-color);
+}
+
+#categoriesCard__select__1 div h3 , #categoriesCard__select__2 div h3
+, #categoriesCard__select__3 div h3, #categoriesCard__select__4 div h3{
+  color: #f5f0f0
+}
+
+.categoriesCard h5 {
+  color: #9d9a9a;
+}
+
+#categoriesCard__select__1 div h5 , #categoriesCard__select__2 div h5
+, #categoriesCard__select__3 div h5, #categoriesCard__select__4 div h5 {
+  color: #f5f0f0;
+}
+
+.categoriesCard:hover {
+  box-shadow: 5px 5px 3px 3px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.categoriesCard img {
+  width: 100%;
+  height: 27.9vh;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.categoriesCard h3,
+.categoriesCard h5 {
+  text-align: left;
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.categoriesCard h3 {
+  color: var(--second-color);
+}
+
+
+.categories__option__container{
+  display: flex;
+}
+.categories__button{
+  cursor: pointer;
+  font-weight: 500;
+  color: white;
+  background-color: var(--principal-color);
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-bottom: -29px;
+  margin-left: 20px;
+}
+.categories__button:hover{
+  background-color: #179990;
+  transition: .5s;
+}
+
+@media (min-width: 768px) {
+  .headingCards{
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .categoriesContainer h2 {
+    width: 92%;
+  }
+  .categoriesCard {
+    width: 45.2%;
+    margin: 7px;
+  }
+
+  .categoriesCard img {
+    max-height: 36vh;
+  }
+  .categories__button{
+    margin-top: 10px;
+    margin-bottom: -39px;
+  }
+  }
+
+@media (min-width: 1366px) {
+
+  .categoriesContainer h2 {
+    width: 94%;
+  }
+  .categoriesCard {
+    width: 22.7%;
+    margin: 7px;
+  }
+
+  .categoriesCard img {
+    height: 23.9vh;
+  }
+}

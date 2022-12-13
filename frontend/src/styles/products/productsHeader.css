@@ -1,0 +1,119 @@
+.productsHeader {
+  background-color: var(--third-color);
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 45px 10px 40px;
+}
+
+.productsHeader__blockLeft h2 {
+  color: #f3f1ed;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17.5px;
+}
+
+.productsHeader__blockLeft h3 {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28.13px;
+}
+
+.productsHeader__blockRight__button {
+  color: white;
+  font-weight: 700;
+  font-size: 35px;
+}
+
+.productsHeader__blockRight__button:hover {
+  color: var(--principal-color);
+  transition: 0.5s;
+}
+
+.productsHeaderdetails {
+  box-shadow: 0px 4px 4px 0px #0000000e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 45px 10px 40px;
+  width: 100%;
+  height: 60px;
+  background-color: #e5e5e540;
+  color: #383b58;
+}
+
+.productsHeaderdetails__firtsblock {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.productsHeaderdetails__firtsblock__icon span {
+  font-size: 14px;
+  color: #383b58ce;
+  padding: 10px 10px 10px 0;
+}
+
+.productsHeaderdetails__firtsblock__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-weight: 500;
+  line-height: 16.41px;
+  font-size: 14px;
+}
+
+.productsHeaderdetails__secondblock {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: end;
+  width: 100%;
+}
+
+.productsHeaderdetails__secondblock__stars {
+  color: var(--principal-color);
+  font-size: 14px;
+}
+.productsHeaderdetails__secondblock p {
+  height: 16px;
+  width: 99px;
+  left: 0px;
+  top: 3px;
+  border-radius: nullpx;
+}
+
+.productsHeaderdetails__secondblock__number {
+  background-color: #545776;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.productsHeaderdetails__secondblock__number div {
+  font-size: 30px;
+  font-weight: 900;
+  color: white;
+  padding: 5px 13px;
+}
+
+@media (max-width: 900px) {
+}
+
+@media (max-width: 500px) {
+  .productsHeader {
+    padding: 0px 10px;
+  }
+  .productsHeaderdetails {
+    padding: 0px 8px;
+  }
+  .productsHeader__blockRight__button {
+    font-size: 20px;
+  }
+  .productsHeaderdetails__firtsblock__distance {
+    display: none;
+  }
+}

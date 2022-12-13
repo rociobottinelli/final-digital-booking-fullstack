@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "fec838cd-202a-4431-b3dc-d64fe7acfa52",
+		"name": "Proyecto Integrador Postman Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18029196"
+	},
+	"item": [
+		{
+			"name": "API Categorías",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"categoriesId\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Hoteles\",\r\n    \"description\": \"Hoteles varios\",\r\n    \"imgUrl\": \"hoteles.com.test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}",
+							"host": [
+								"{{URL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// API Status\r",
+									"pm.test(\"Categories load must be valid and have a body\", () => {\r",
+									"    pm.response.to.have.status(200); // validar que nos devuelva un 200\r",
+									"    pm.response.to.be.withBody; // validar que exista el body\r",
+									"    pm.response.to.be.json; // validar que sea JSON\r",
+									"    pm.response.to.be.an(\"object\"); // validar que sea un objeto\r",
+									"});\r",
+									"\r",
+									"// API Find all\r",
+									"const jsonData = pm.response.json();\r",
+									"const cat = jsonData[0];\r",
+									"\r",
+									"let schema = {\r",
+									"    \"type\": \"array\",\r",
+									"    \"items\": {\"$ref\": \"categoriesSchema\"}\r",
+									"};\r",
+									"\r",
+									"let categoriesSchema = {\r",
+									"    \"properties\": {\r",
+									"        \"id\": {\"type\": \"integer\"},\r",
+									"        \"title\": {\"type\": \"string\"},\r",
+									"        \"description\": {\"type\": \"string\"},\r",
+									"        \"imgUrl\": {\"type\": \"string\"}\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"tv4.addSchema('categoriesSchema', categoriesSchema);\r",
+									"\r",
+									"pm.test(\"Categories schema is valid\", () => {\r",
+									"    pm.expect(tv4.validate(jsonData, schema)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Categories found\", () => {\r",
+									"    pm.expect(cat.title).to.eql(\"Hoteles\");\r",
+									"    pm.expect(cat.description).to.eql(\"Hoteles varios\");\r",
+									"    pm.expect(cat.imgUrl).to.eql(\"hoteles.com.test\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/categorias/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categorias",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful UPDATE request\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 204]);\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"categoriesId\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": {{categoriesId}},\r\n    \"title\": \"Departamentos\",\r\n    \"description\": \"Departamentos varios\",\r\n    \"imgUrl\": \"departamentos.com.test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/update",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 204]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{categoriesId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,94 @@
+.account{
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+}
+
+#accounts__footer{
+    padding: 0px 0px 30px 0px;
+    margin-bottom: 40px;
+}
+
+.account__image{
+    margin-top: .1px;
+    width: 100%;
+    /* Degrade */
+    mask-image: linear-gradient(to top, transparent 1%, black 50%);
+    z-index: -1;
+    margin-bottom: -250px;
+}
+
+.account__title h2{
+    padding-left: 25px;
+    font-weight: 600;
+    font-size: 50px;
+}
+
+.account__title h3{
+    padding-left: 25px;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 70px;
+}
+
+.account__fav{
+    display: flex;
+    flex-direction: column;
+}
+
+.account__fav > h3{
+    color: var(--second-color);
+    font-size: 35px;
+    padding-left: 25px;
+    margin: 0px 0px 20px 0px;
+}
+
+.account__favoritos__list{
+    margin-top: 10px; 
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.account__reservas__list{
+    display: flex;
+    border: 1px solid gray;
+}
+
+.account__favoritos__null{
+    width: 100%;
+    padding: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+    .account__image{
+        margin-bottom: -150px;
+    }
+    .account__title h2 {
+        font-size: 40px;
+    }
+    .account__favoritos__list{
+        flex-direction: column;
+    }
+    .account__title h3 {
+        font-size: 17px;
+        width: 50%;
+        margin-bottom: 10px;
+    }
+ }
+
+ @media screen and (max-width: 500px) {
+    .account__image{
+        margin-bottom: -80px;
+    }
+    .account__title h2 {
+        font-size: 25px;
+    }
+    .account__title h3 {
+        font-size: 15px;
+        width: 50%;
+        margin-bottom: 10px;
+    }
+}

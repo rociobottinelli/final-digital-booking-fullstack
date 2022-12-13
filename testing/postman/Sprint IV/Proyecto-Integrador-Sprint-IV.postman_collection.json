@@ -1,0 +1,2056 @@
+{
+	"info": {
+		"_postman_id": "c3ffe9e0-7c47-45e6-a03a-ea2d7aea99e2",
+		"name": "Proyecto-Integrador",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18029196"
+	},
+	"item": [
+		{
+			"name": "API Categorías",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"categoriesId\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokenDeAcceso}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Hoteles\",\r\n    \"description\": \"Hoteles varios\",\r\n    \"imgUrl\": \"hoteles.com.test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}categorias",
+							"host": [
+								"{{URL}}categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// API Status\r",
+									"pm.test(\"Categories load must be valid and have a body\", () => {\r",
+									"    pm.response.to.have.status(200); // validar que nos devuelva un 200\r",
+									"    pm.response.to.be.withBody; // validar que exista el body\r",
+									"    pm.response.to.be.json; // validar que sea JSON\r",
+									"    pm.response.to.be.an(\"object\"); // validar que sea un objeto\r",
+									"});\r",
+									"\r",
+									"// API Find all\r",
+									"const jsonData = pm.response.json();\r",
+									"const cat = jsonData[0];\r",
+									"\r",
+									"let schema = {\r",
+									"    \"type\": \"array\",\r",
+									"    \"items\": {\"$ref\": \"categoriesSchema\"}\r",
+									"};\r",
+									"\r",
+									"let categoriesSchema = {\r",
+									"    \"properties\": {\r",
+									"        \"id\": {\"type\": \"integer\"},\r",
+									"        \"title\": {\"type\": \"string\"},\r",
+									"        \"description\": {\"type\": \"string\"},\r",
+									"        \"imgUrl\": {\"type\": \"string\"}\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"tv4.addSchema('categoriesSchema', categoriesSchema);\r",
+									"\r",
+									"pm.test(\"Categories schema is valid\", () => {\r",
+									"    pm.expect(tv4.validate(jsonData, schema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}categorias/list",
+							"host": [
+								"{{URL}}categorias"
+							],
+							"path": [
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful UPDATE request\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 204]);\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"categoriesId\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokenDeAcceso}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": {{categoriesId}},\r\n    \"title\": \"Departamentos\",\r\n    \"description\": \"Departamentos varios\",\r\n    \"imgUrl\": \"departamentos.com.test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}categorias/update",
+							"host": [
+								"{{URL}}categorias"
+							],
+							"path": [
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 204]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokenDeAcceso}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}categorias/:id",
+							"host": [
+								"{{URL}}categorias"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{categoriesId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Productos",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"productsId\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokenDeAcceso}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Hotel hotel\",\r\n    \"title\":\"El lujo hecho hotel\",\r\n    \"description\": \"El hotel pp ddjdksjfhjkdsf ksjfhkdsjfh sfdhskjfhksdjf sdkfhsdjkfskf\",\r\n    \"categoria\": {\"id\":2},\r\n    \"caracteristica\": {\r\n        \"kitchen\": true,\r\n        \"tv\": true,\r\n        \"airConditioning\": true,\r\n        \"petsAllowed\": false,\r\n        \"freeParking\": false,\r\n        \"pool\": false,\r\n        \"wifi\": true\r\n    },\r\n    \"ciudad\": {\"id\":1},\r\n    \"imagen\": [{\"title\": \"principal\",\r\n            \"url\": \"https://t-cf.bstatic.com/xdata/images/hotel/max1280x900/335987727.jpg?k=ff98973c73771384f41682fb6d9928d5cb695544fc0aac21c95485129a5a1579&o=&hp=1\"}],\r\n    \"reserva\": [\r\n        {\r\n            \"horaComienzo\": \"15:00:00\",\r\n            \"fechaInicio\": \"2022-12-03\",\r\n            \"fechaFin\": \"2022-12-05\"\r\n        },\r\n        {\r\n            \"horaComienzo\": \"16:00:00\",\r\n            \"fechaInicio\": \"2021-12-03\",\r\n            \"fechaFin\": \"2023-12-05\"\r\n        }\r\n    ],\r\n    \"domicilio\": \"pepejuancho\",\r\n    \"latitud\": \"pepe\",\r\n    \"longitud\":\"pepito\",\r\n    \"politicas\": {\r\n            \"checkout\": \"14:00\",\r\n            \"fiesta\": true,\r\n            \"fumar\": true,\r\n            \"distanciamiento\": true,\r\n            \"detectorHumo\": true,\r\n            \"depositoSeguridad\": true,\r\n            \"cancelacionUno\": true,\r\n            \"cancelacionDos\": true,\r\n            \"cancelacionTres\": true\r\n        },\r\n    \"estadia\": 2500,\r\n    \"usuario\": {\"id\":13}    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}productos",
+							"host": [
+								"{{URL}}productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Products load must be valid and have a body\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.response.to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"let productoSchema = {\r",
+									"    \"properties\": {\r",
+									"        \"id\": {\"type\": \"integer\"},\r",
+									"        \"name\": {\"type\": \"string\"},\r",
+									"        \"title\": {\"type\": \"string\"},\r",
+									"        \"description\": {\"type\": \"string\"},\r",
+									"        \"longitud\": {\"type\": \"string\"},\r",
+									"        \"latitud\": {\"type\": \"string\"},\r",
+									"        \"domicilio\": {\"type\": \"string\"},\r",
+									"        \"categoria\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"title\": {\"type\": \"string\"},\r",
+									"            \"description\": {\"type\": \"string\"},\r",
+									"            \"imgUrl\": {\"type\": \"string\"}\r",
+									"        },\r",
+									"        \"imagen\": [{\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"title\": {\"type\": \"string\"},\r",
+									"            \"url\": {\"type\": \"string\"}\r",
+									"        }],\r",
+									"        \"caracteristica\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"kitchen\": {\"type\": \"boolean\"},\r",
+									"            \"tv\": {\"type\": \"boolean\"},\r",
+									"            \"airConditioning\": {\"type\": \"boolean\"},\r",
+									"            \"petsAllowed\": {\"type\": \"boolean\"},\r",
+									"            \"freeParking\": {\"type\": \"boolean\"},\r",
+									"            \"pool\": {\"type\": \"boolean\"},\r",
+									"            \"wifi\": {\"type\": \"boolean\"}\r",
+									"        },\r",
+									"        \"ciudad\": {\r",
+									"            \"id\": {\"type\": \"long\"},\r",
+									"            \"city\": {\"type\": \"string\"},\r",
+									"            \"pais\": {\r",
+									"                \"id\": {\"type\": \"long\"},\r",
+									"                \"pais\": {\"type\": \"string\"}\r",
+									"            }\r",
+									"        },\r",
+									"        \"reservas\": [{\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"horaComienzo\": {\"type\": \"LocalTime\"},\r",
+									"            \"fechaInicio\": {\"type\": \"LocalDate\"},\r",
+									"            \"fechaFin\": {\"type\": \"LocalDate\"},\r",
+									"            \"usuario\": {\r",
+									"                    \"id\": {\"type\": \"integer\"},\r",
+									"                    \"nombre\": {\"type\": \"string\"},\r",
+									"                    \"apellido\": {\"type\": \"string\"},\r",
+									"                    \"email\": {\"type\": \"string\"},\r",
+									"                    \"contraseña\": {\"type\": \"string\"},\r",
+									"                    \"telefono\": {\"type\": \"string\"},\r",
+									"                    \"roles\": {\r",
+									"                        \"id\": {\"type\": \"integer\"},\r",
+									"                        \"name\": {\"type\": \"string\"}\r",
+									"                    },\r",
+									"                },\r",
+									"                \"nombreReserva\": {\"type\": \"string\"},\r",
+									"                \"apellidoReserva\": {\"type\": \"string\"},\r",
+									"                \"emailReserva\": {\"type\": \"string\"},\r",
+									"                \"telefonoReserva\": {\"type\": \"string\"},\r",
+									"                \"comentarios\": {\"type\": \"string\"},\r",
+									"                \"vacunacion\": {\"type\": \"boolean\"}\r",
+									"        }],\r",
+									"        \"politicas\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"checkout\": {\"type\": \"string\"},\r",
+									"            \"fiesta\": {\"type\": \"boolean\"},\r",
+									"            \"fumar\": {\"type\": \"boolean\"},\r",
+									"            \"distanciamiento\": {\"type\": \"boolean\"},\r",
+									"            \"detectorHumo\": {\"type\": \"boolean\"},\r",
+									"            \"depositoSeguridad\": {\"type\": \"boolean\"},\r",
+									"            \"cancelacion\": {\"type\": \"boolean\"}\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"tv4.addSchema('productoSchema', productoSchema);\r",
+									"\r",
+									"pm.test(\"Products schemas is valid\", () => {\r",
+									"    pm.expect(tv4.validate(jsonData, productoSchema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}productos/1",
+							"host": [
+								"{{URL}}productos"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Products load must be valid and have a body\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.response.to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"const prod = jsonData[0];\r",
+									"\r",
+									"let productoSchema = {\r",
+									"    \"properties\": {\r",
+									"        \"id\": {\"type\": \"integer\"},\r",
+									"        \"name\": {\"type\": \"string\"},\r",
+									"        \"title\": {\"type\": \"string\"},\r",
+									"        \"description\": {\"type\": \"string\"},\r",
+									"        \"longitud\": {\"type\": \"string\"},\r",
+									"        \"latitud\": {\"type\": \"string\"},\r",
+									"        \"domicilio\": {\"type\": \"string\"},\r",
+									"        \"categoria\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"title\": {\"type\": \"string\"},\r",
+									"            \"description\": {\"type\": \"string\"},\r",
+									"            \"imgUrl\": {\"type\": \"string\"}\r",
+									"        },\r",
+									"        \"imagen\": [{\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"title\": {\"type\": \"string\"},\r",
+									"            \"url\": {\"type\": \"string\"}\r",
+									"        }],\r",
+									"        \"caracteristica\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"kitchen\": {\"type\": \"boolean\"},\r",
+									"            \"tv\": {\"type\": \"boolean\"},\r",
+									"            \"airConditioning\": {\"type\": \"boolean\"},\r",
+									"            \"petsAllowed\": {\"type\": \"boolean\"},\r",
+									"            \"freeParking\": {\"type\": \"boolean\"},\r",
+									"            \"pool\": {\"type\": \"boolean\"},\r",
+									"            \"wifi\": {\"type\": \"boolean\"}\r",
+									"        },\r",
+									"        \"ciudad\": {\r",
+									"            \"id\": {\"type\": \"long\"},\r",
+									"            \"city\": {\"type\": \"string\"},\r",
+									"            \"pais\": {\r",
+									"                \"id\": {\"type\": \"long\"},\r",
+									"                \"pais\": {\"type\": \"string\"}\r",
+									"            }\r",
+									"        },\r",
+									"        \"reservas\": [{\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"horaComienzo\": {\"type\": \"LocalTime\"},\r",
+									"            \"fechaInicio\": {\"type\": \"LocalDate\"},\r",
+									"            \"fechaFin\": {\"type\": \"LocalDate\"},\r",
+									"            \"usuario\": {\r",
+									"                    \"id\": {\"type\": \"integer\"},\r",
+									"                    \"nombre\": {\"type\": \"string\"},\r",
+									"                    \"apellido\": {\"type\": \"string\"},\r",
+									"                    \"email\": {\"type\": \"string\"},\r",
+									"                    \"contraseña\": {\"type\": \"string\"},\r",
+									"                    \"telefono\": {\"type\": \"string\"},\r",
+									"                    \"roles\": {\r",
+									"                        \"id\": {\"type\": \"integer\"},\r",
+									"                        \"name\": {\"type\": \"string\"}\r",
+									"                    },\r",
+									"                },\r",
+									"                \"nombreReserva\": {\"type\": \"string\"},\r",
+									"                \"apellidoReserva\": {\"type\": \"string\"},\r",
+									"                \"emailReserva\": {\"type\": \"string\"},\r",
+									"                \"telefonoReserva\": {\"type\": \"string\"},\r",
+									"                \"comentarios\": {\"type\": \"string\"},\r",
+									"                \"vacunacion\": {\"type\": \"boolean\"}\r",
+									"        }],\r",
+									"        \"politicas\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"checkout\": {\"type\": \"string\"},\r",
+									"            \"fiesta\": {\"type\": \"boolean\"},\r",
+									"            \"fumar\": {\"type\": \"boolean\"},\r",
+									"            \"distanciamiento\": {\"type\": \"boolean\"},\r",
+									"            \"detectorHumo\": {\"type\": \"boolean\"},\r",
+									"            \"depositoSeguridad\": {\"type\": \"boolean\"},\r",
+									"            \"cancelacion\": {\"type\": \"boolean\"}\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"tv4.addSchema('productoSchema', productoSchema);\r",
+									"\r",
+									"pm.test(\"Products schemas is valid\", () => {\r",
+									"    pm.expect(tv4.validate(jsonData, productoSchema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}productos/list",
+							"host": [
+								"{{URL}}productos"
+							],
+							"path": [
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"productsId\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokenDeAcceso}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"Hotel hotel\",\r\n    \"title\":\"El lujo hecho hotel\",\r\n    \"description\": \"El hotel pp ddjdksjfhjkdsf ksjfhkdsjfh sfdhskjfhksdjf sdkfhsdjkfskf\",\r\n    \"categoria\": {\r\n        \"id\":2\r\n        },\r\n    \"caracteristica\": {\r\n        \"kitchen\": true,\r\n        \"tv\": true,\r\n        \"airConditioning\": true,\r\n        \"petsAllowed\": false,\r\n        \"freeParking\": false,\r\n        \"pool\": false,\r\n        \"wifi\": true\r\n    },\r\n    \"ciudad\": {\"id\":1},\r\n    \"imagen\": [{\"title\": \"principal\",\r\n            \"url\": \"https://t-cf.bstatic.com/xdata/images/hotel/max1280x900/335987727.jpg?k=ff98973c73771384f41682fb6d9928d5cb695544fc0aac21c95485129a5a1579&o=&hp=1\"}],\r\n    \"reserva\": [\r\n        {\r\n            \"horaComienzo\": \"15:00:00\",\r\n            \"fechaInicio\": \"2022-12-03\",\r\n            \"fechaFin\": \"2022-12-05\"\r\n        },\r\n        {\r\n            \"horaComienzo\": \"16:00:00\",\r\n            \"fechaInicio\": \"2021-12-03\",\r\n            \"fechaFin\": \"2023-12-05\"\r\n        }\r\n    ],\r\n    \"domicilio\": \"pepejuancho\",\r\n    \"latitud\": \"pepe\",\r\n    \"longitud\":\"pepito\",\r\n    \"politicas\": {\r\n            \"checkout\": \"14:00\",\r\n            \"fiesta\": true,\r\n            \"fumar\": true,\r\n            \"distanciamiento\": true,\r\n            \"detectorHumo\": true,\r\n            \"depositoSeguridad\": true,\r\n            \"cancelacionUno\": true,\r\n            \"cancelacionDos\": true,\r\n            \"cancelacionTres\": true\r\n        },\r\n    \"estadia\": 2500,\r\n    \"usuario\": {\"id\":13}    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}productos/update/32",
+							"host": [
+								"{{URL}}productos"
+							],
+							"path": [
+								"update",
+								"32"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By City And Between Date",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Products load must be valid and have a body\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.response.to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"let productoSchema = {\r",
+									"    \"properties\": {\r",
+									"        \"id\": {\"type\": \"integer\"},\r",
+									"        \"name\": {\"type\": \"string\"},\r",
+									"        \"title\": {\"type\": \"string\"},\r",
+									"        \"description\": {\"type\": \"string\"},\r",
+									"        \"longitud\": {\"type\": \"string\"},\r",
+									"        \"latitud\": {\"type\": \"string\"},\r",
+									"        \"domicilio\": {\"type\": \"string\"},\r",
+									"        \"categoria\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"title\": {\"type\": \"string\"},\r",
+									"            \"description\": {\"type\": \"string\"},\r",
+									"            \"imgUrl\": {\"type\": \"string\"}\r",
+									"        },\r",
+									"        \"imagen\": [{\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"title\": {\"type\": \"string\"},\r",
+									"            \"url\": {\"type\": \"string\"}\r",
+									"        }],\r",
+									"        \"caracteristica\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"kitchen\": {\"type\": \"boolean\"},\r",
+									"            \"tv\": {\"type\": \"boolean\"},\r",
+									"            \"airConditioning\": {\"type\": \"boolean\"},\r",
+									"            \"petsAllowed\": {\"type\": \"boolean\"},\r",
+									"            \"freeParking\": {\"type\": \"boolean\"},\r",
+									"            \"pool\": {\"type\": \"boolean\"},\r",
+									"            \"wifi\": {\"type\": \"boolean\"}\r",
+									"        },\r",
+									"        \"ciudad\": {\r",
+									"            \"id\": {\"type\": \"long\"},\r",
+									"            \"city\": {\"type\": \"string\"},\r",
+									"            \"pais\": {\r",
+									"                \"id\": {\"type\": \"long\"},\r",
+									"                \"pais\": {\"type\": \"string\"}\r",
+									"            }\r",
+									"        },\r",
+									"        \"reservas\": [{\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"horaComienzo\": {\"type\": \"LocalTime\"},\r",
+									"            \"fechaInicio\": {\"type\": \"LocalDate\"},\r",
+									"            \"fechaFin\": {\"type\": \"LocalDate\"},\r",
+									"            \"usuario\": {\r",
+									"                    \"id\": {\"type\": \"integer\"},\r",
+									"                    \"nombre\": {\"type\": \"string\"},\r",
+									"                    \"apellido\": {\"type\": \"string\"},\r",
+									"                    \"email\": {\"type\": \"string\"},\r",
+									"                    \"contraseña\": {\"type\": \"string\"},\r",
+									"                    \"telefono\": {\"type\": \"string\"},\r",
+									"                    \"roles\": {\r",
+									"                        \"id\": {\"type\": \"integer\"},\r",
+									"                        \"name\": {\"type\": \"string\"}\r",
+									"                    },\r",
+									"                },\r",
+									"                \"nombreReserva\": {\"type\": \"string\"},\r",
+									"                \"apellidoReserva\": {\"type\": \"string\"},\r",
+									"                \"emailReserva\": {\"type\": \"string\"},\r",
+									"                \"telefonoReserva\": {\"type\": \"string\"},\r",
+									"                \"comentarios\": {\"type\": \"string\"},\r",
+									"                \"vacunacion\": {\"type\": \"boolean\"}\r",
+									"        }],\r",
+									"        \"politicas\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"checkout\": {\"type\": \"string\"},\r",
+									"            \"fiesta\": {\"type\": \"boolean\"},\r",
+									"            \"fumar\": {\"type\": \"boolean\"},\r",
+									"            \"distanciamiento\": {\"type\": \"boolean\"},\r",
+									"            \"detectorHumo\": {\"type\": \"boolean\"},\r",
+									"            \"depositoSeguridad\": {\"type\": \"boolean\"},\r",
+									"            \"cancelacion\": {\"type\": \"boolean\"}\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"tv4.addSchema('productoSchema', productoSchema);\r",
+									"\r",
+									"pm.test(\"Products schemas is valid\", () => {\r",
+									"    pm.expect(tv4.validate(jsonData, productoSchema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}productos/Salta/2022-01-12/2022-01-12",
+							"host": [
+								"{{URL}}productos"
+							],
+							"path": [
+								"Salta",
+								"2022-01-12",
+								"2022-01-12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Random",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Products load must be valid and have a body\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.response.to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"const prod = jsonData[0];\r",
+									"\r",
+									"\r",
+									"let productoSchema = {\r",
+									"    \"properties\": {\r",
+									"        \"id\": {\"type\": \"integer\"},\r",
+									"        \"name\": {\"type\": \"string\"},\r",
+									"        \"title\": {\"type\": \"string\"},\r",
+									"        \"description\": {\"type\": \"string\"},\r",
+									"        \"longitud\": {\"type\": \"string\"},\r",
+									"        \"latitud\": {\"type\": \"string\"},\r",
+									"        \"domicilio\": {\"type\": \"string\"},\r",
+									"        \"categoria\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"title\": {\"type\": \"string\"},\r",
+									"            \"description\": {\"type\": \"string\"},\r",
+									"            \"imgUrl\": {\"type\": \"string\"}\r",
+									"        },\r",
+									"        \"imagen\": [{\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"title\": {\"type\": \"string\"},\r",
+									"            \"url\": {\"type\": \"string\"}\r",
+									"        }],\r",
+									"        \"caracteristica\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"kitchen\": {\"type\": \"boolean\"},\r",
+									"            \"tv\": {\"type\": \"boolean\"},\r",
+									"            \"airConditioning\": {\"type\": \"boolean\"},\r",
+									"            \"petsAllowed\": {\"type\": \"boolean\"},\r",
+									"            \"freeParking\": {\"type\": \"boolean\"},\r",
+									"            \"pool\": {\"type\": \"boolean\"},\r",
+									"            \"wifi\": {\"type\": \"boolean\"}\r",
+									"        },\r",
+									"        \"ciudad\": {\r",
+									"            \"id\": {\"type\": \"long\"},\r",
+									"            \"city\": {\"type\": \"string\"},\r",
+									"            \"pais\": {\r",
+									"                \"id\": {\"type\": \"long\"},\r",
+									"                \"pais\": {\"type\": \"string\"}\r",
+									"            }\r",
+									"        },\r",
+									"        \"reservas\": [{\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"horaComienzo\": {\"type\": \"LocalTime\"},\r",
+									"            \"fechaInicio\": {\"type\": \"LocalDate\"},\r",
+									"            \"fechaFin\": {\"type\": \"LocalDate\"},\r",
+									"            \"usuario\": {\r",
+									"                    \"id\": {\"type\": \"integer\"},\r",
+									"                    \"nombre\": {\"type\": \"string\"},\r",
+									"                    \"apellido\": {\"type\": \"string\"},\r",
+									"                    \"email\": {\"type\": \"string\"},\r",
+									"                    \"contraseña\": {\"type\": \"string\"},\r",
+									"                    \"telefono\": {\"type\": \"string\"},\r",
+									"                    \"roles\": {\r",
+									"                        \"id\": {\"type\": \"integer\"},\r",
+									"                        \"name\": {\"type\": \"string\"}\r",
+									"                    },\r",
+									"                },\r",
+									"                \"nombreReserva\": {\"type\": \"string\"},\r",
+									"                \"apellidoReserva\": {\"type\": \"string\"},\r",
+									"                \"emailReserva\": {\"type\": \"string\"},\r",
+									"                \"telefonoReserva\": {\"type\": \"string\"},\r",
+									"                \"comentarios\": {\"type\": \"string\"},\r",
+									"                \"vacunacion\": {\"type\": \"boolean\"}\r",
+									"        }],\r",
+									"        \"politicas\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"checkout\": {\"type\": \"string\"},\r",
+									"            \"fiesta\": {\"type\": \"boolean\"},\r",
+									"            \"fumar\": {\"type\": \"boolean\"},\r",
+									"            \"distanciamiento\": {\"type\": \"boolean\"},\r",
+									"            \"detectorHumo\": {\"type\": \"boolean\"},\r",
+									"            \"depositoSeguridad\": {\"type\": \"boolean\"},\r",
+									"            \"cancelacion\": {\"type\": \"boolean\"}\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"tv4.addSchema('productoSchema', productoSchema);\r",
+									"\r",
+									"pm.test(\"Products schemas is valid\", () => {\r",
+									"    pm.expect(tv4.validate(jsonData, productoSchema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}productos/page",
+							"host": [
+								"{{URL}}productos"
+							],
+							"path": [
+								"page"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By City",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Products load must be valid and have a body\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"let productoSchema = {\r",
+									"    \"properties\": {\r",
+									"        \"id\": {\"type\": \"integer\"},\r",
+									"        \"name\": {\"type\": \"string\"},\r",
+									"        \"title\": {\"type\": \"string\"},\r",
+									"        \"description\": {\"type\": \"string\"},\r",
+									"        \"longitud\": {\"type\": \"string\"},\r",
+									"        \"latitud\": {\"type\": \"string\"},\r",
+									"        \"domicilio\": {\"type\": \"string\"},\r",
+									"        \"categoria\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"title\": {\"type\": \"string\"},\r",
+									"            \"description\": {\"type\": \"string\"},\r",
+									"            \"imgUrl\": {\"type\": \"string\"}\r",
+									"        },\r",
+									"        \"imagen\": [{\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"title\": {\"type\": \"string\"},\r",
+									"            \"url\": {\"type\": \"string\"}\r",
+									"        }],\r",
+									"        \"caracteristica\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"kitchen\": {\"type\": \"boolean\"},\r",
+									"            \"tv\": {\"type\": \"boolean\"},\r",
+									"            \"airConditioning\": {\"type\": \"boolean\"},\r",
+									"            \"petsAllowed\": {\"type\": \"boolean\"},\r",
+									"            \"freeParking\": {\"type\": \"boolean\"},\r",
+									"            \"pool\": {\"type\": \"boolean\"},\r",
+									"            \"wifi\": {\"type\": \"boolean\"}\r",
+									"        },\r",
+									"        \"ciudad\": {\r",
+									"            \"id\": {\"type\": \"long\"},\r",
+									"            \"city\": {\"type\": \"string\"},\r",
+									"            \"pais\": {\r",
+									"                \"id\": {\"type\": \"long\"},\r",
+									"                \"pais\": {\"type\": \"string\"}\r",
+									"            }\r",
+									"        },\r",
+									"        \"reservas\": [{\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"horaComienzo\": {\"type\": \"LocalTime\"},\r",
+									"            \"fechaInicio\": {\"type\": \"LocalDate\"},\r",
+									"            \"fechaFin\": {\"type\": \"LocalDate\"},\r",
+									"            \"usuario\": {\r",
+									"                    \"id\": {\"type\": \"integer\"},\r",
+									"                    \"nombre\": {\"type\": \"string\"},\r",
+									"                    \"apellido\": {\"type\": \"string\"},\r",
+									"                    \"email\": {\"type\": \"string\"},\r",
+									"                    \"contraseña\": {\"type\": \"string\"},\r",
+									"                    \"telefono\": {\"type\": \"string\"},\r",
+									"                    \"roles\": {\r",
+									"                        \"id\": {\"type\": \"integer\"},\r",
+									"                        \"name\": {\"type\": \"string\"}\r",
+									"                    },\r",
+									"                },\r",
+									"                \"nombreReserva\": {\"type\": \"string\"},\r",
+									"                \"apellidoReserva\": {\"type\": \"string\"},\r",
+									"                \"emailReserva\": {\"type\": \"string\"},\r",
+									"                \"telefonoReserva\": {\"type\": \"string\"},\r",
+									"                \"comentarios\": {\"type\": \"string\"},\r",
+									"                \"vacunacion\": {\"type\": \"boolean\"}\r",
+									"        }],\r",
+									"        \"politicas\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"checkout\": {\"type\": \"string\"},\r",
+									"            \"fiesta\": {\"type\": \"boolean\"},\r",
+									"            \"fumar\": {\"type\": \"boolean\"},\r",
+									"            \"distanciamiento\": {\"type\": \"boolean\"},\r",
+									"            \"detectorHumo\": {\"type\": \"boolean\"},\r",
+									"            \"depositoSeguridad\": {\"type\": \"boolean\"},\r",
+									"            \"cancelacion\": {\"type\": \"boolean\"}\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"tv4.addSchema('productoSchema', productoSchema);\r",
+									"\r",
+									"pm.test(\"Products schemas is valid\", () => {\r",
+									"    pm.expect(tv4.validate(jsonData, productoSchema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}productos/ciudades/Córdoba",
+							"host": [
+								"{{URL}}productos"
+							],
+							"path": [
+								"ciudades",
+								"Córdoba"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Imagenes",
+			"item": [
+				{
+					"name": "Find All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Imagenes load must be valid and have a body\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.response.to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"const prod = jsonData[0];\r",
+									"\r",
+									"let imagenesSchema = {\r",
+									"    \"properties\": [{\r",
+									"        \"id\": {\"type\": \"integer\"},\r",
+									"        \"title\": {\"type\": \"string\"},\r",
+									"        \"url\": {\"type\": \"string\"}\r",
+									"    }]\r",
+									"};\r",
+									"\r",
+									"tv4.addSchema('imagenesSchema', imagenesSchema);\r",
+									"\r",
+									"pm.test(\"Imagenes schemas is valid\", () => {\r",
+									"    pm.expect(tv4.validate(jsonData, imagenesSchema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}imagenes/list",
+							"host": [
+								"{{URL}}imagenes"
+							],
+							"path": [
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Usuarios",
+			"item": [
+				{
+					"name": "Find All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Usuarios load must be valid and have a body\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.response.to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"const prod = jsonData[0];\r",
+									"\r",
+									"let usuariosSchema = {\r",
+									"    \"properties\": {\r",
+									"        \"id\": {\"type\": \"integer\"},\r",
+									"        \"nombre\": {\"type\": \"string\"},\r",
+									"        \"apellido\": {\"type\": \"string\"},\r",
+									"        \"email\": {\"type\": \"string\"},\r",
+									"        \"contraseña\": {\"type\": \"string\"},\r",
+									"        \"telefono\": {\"type\": \"string\"},\r",
+									"        \"roles\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"name\": {\"type\": \"string\"}\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"tv4.addSchema('usuariosSchema', usuariosSchema);\r",
+									"\r",
+									"pm.test(\"Usuarios schemas is valid\", () => {\r",
+									"    pm.expect(tv4.validate(jsonData, usuariosSchema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}usuarios/list",
+							"host": [
+								"{{URL}}usuarios"
+							],
+							"path": [
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"pm.globals.set(\"tokenDeAcceso\", jsonData.tokenDeAcceso);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"federicofpaz@gmail.com\",\r\n    \"contrasenia\": \"Grupo52022\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}usuarios/login",
+							"host": [
+								"{{URL}}usuarios"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 204]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokenDeAcceso}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}usuarios/:id",
+							"host": [
+								"{{URL}}usuarios"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{usuarioId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201]);\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"usuarioId\", jsonData.id);\r",
+									"pm.globals.set(\"verificacionCode\", jsonData.verificationCode);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Federico\",\r\n    \"apellido\": \"Paz\",\r\n    \"email\": \"federicofpaz@gmail.com\",\r\n    \"contrasenia\": \"Grupo52022\",\r\n    \"telefono\": \"+54245623672\",\r\n    \"roles\": {\"id\":1}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}usuarios/registrar",
+							"host": [
+								"{{URL}}usuarios"
+							],
+							"path": [
+								"registrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"pm.globals.set(\"tokenDeAcceso\", jsonData.tokenDeAcceso);\r",
+									"pm.globals.set(\"verificacionCode\", jsonData.verificationCode);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokenDeAcceso}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 17,\r\n    \"nombre\": \"Federico\",\r\n    \"apellido\": \"Messi\",\r\n    \"email\": \"federicofpaz@gmail.com\",\r\n    \"telefono\": \"+54245623670\",\r\n    \"roles\": {\"id\":1}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}usuarios/updateUser",
+							"host": [
+								"{{URL}}usuarios"
+							],
+							"path": [
+								"updateUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Usuarios load must be valid and have a body\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.response.to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"const prod = jsonData[0];\r",
+									"\r",
+									"let usuariosSchema = {\r",
+									"    \"properties\": {\r",
+									"        \"id\": {\"type\": \"integer\"},\r",
+									"        \"nombre\": {\"type\": \"string\"},\r",
+									"        \"apellido\": {\"type\": \"string\"},\r",
+									"        \"email\": {\"type\": \"string\"},\r",
+									"        \"contraseña\": {\"type\": \"string\"},\r",
+									"        \"telefono\": {\"type\": \"string\"},\r",
+									"        \"roles\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"name\": {\"type\": \"string\"}\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"tv4.addSchema('usuariosSchema', usuariosSchema);\r",
+									"\r",
+									"pm.test(\"Usuarios schemas is valid\", () => {\r",
+									"    pm.expect(tv4.validate(jsonData, usuariosSchema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}usuarios/11",
+							"host": [
+								"{{URL}}usuarios"
+							],
+							"path": [
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Usuarios load must be valid and have a body\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.response.to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"const prod = jsonData[0];\r",
+									"\r",
+									"let usuariosSchema = {\r",
+									"    \"properties\": {\r",
+									"        \"id\": {\"type\": \"integer\"},\r",
+									"        \"nombre\": {\"type\": \"string\"},\r",
+									"        \"apellido\": {\"type\": \"string\"},\r",
+									"        \"email\": {\"type\": \"string\"},\r",
+									"        \"contraseña\": {\"type\": \"string\"},\r",
+									"        \"telefono\": {\"type\": \"string\"},\r",
+									"        \"roles\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"name\": {\"type\": \"string\"}\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"tv4.addSchema('usuariosSchema', usuariosSchema);\r",
+									"\r",
+									"pm.test(\"Usuarios schemas is valid\", () => {\r",
+									"    pm.expect(tv4.validate(jsonData, usuariosSchema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}usuarios/verify/{{verificacionCode}}",
+							"host": [
+								"{{URL}}usuarios"
+							],
+							"path": [
+								"verify",
+								"{{verificacionCode}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"pm.globals.set(\"tokenDeAcceso\", jsonData.tokenDeAcceso);\r",
+									"pm.globals.set(\"verificacionCode\", jsonData.verificationCode);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokenDeAcceso}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 15,\r\n    \"contrasenia\": \"Grupo52022\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}usuarios/updatePassword",
+							"host": [
+								"{{URL}}usuarios"
+							],
+							"path": [
+								"updatePassword"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Reservas",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokenDeAcceso}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"horaComienzo\": \"19:00:00\",\r\n    \"fechaInicio\": \"2022-12-03\",\r\n    \"fechaFin\": \"2022-12-05\",\r\n    \"producto\": {\"id\":1},\r\n    \"usuario\": {\"id\":10}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}reservas",
+							"host": [
+								"{{URL}}reservas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Reservas load must be valid and have a body\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.response.to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"let reservaSchema = {\r",
+									"    \"properties\": {\r",
+									"        \"id\": {\"type\": \"integer\"},\r",
+									"        \"horaComienzo\": {\"type\": \"LocalTime\"},\r",
+									"        \"fechaInicio\": {\"type\": \"LocalDate\"},\r",
+									"        \"fechaFin\": {\"type\": \"LocalDate\"},\r",
+									"        \"usuario\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"nombre\": {\"type\": \"string\"},\r",
+									"            \"apellido\": {\"type\": \"string\"},\r",
+									"            \"email\": {\"type\": \"string\"},\r",
+									"            \"contraseña\": {\"type\": \"string\"},\r",
+									"            \"telefono\": {\"type\": \"string\"},\r",
+									"            \"roles\": {\r",
+									"                \"id\": {\"type\": \"integer\"},\r",
+									"                \"name\": {\"type\": \"string\"}\r",
+									"            }\r",
+									"        },\r",
+									"        \"producto\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"name\": {\"type\": \"string\"},\r",
+									"            \"title\": {\"type\": \"string\"},\r",
+									"            \"description\": {\"type\": \"string\"},\r",
+									"            \"longitud\": {\"type\": \"string\"},\r",
+									"            \"latitud\": {\"type\": \"string\"},\r",
+									"            \"domicilio\": {\"type\": \"string\"},\r",
+									"            \"categoria\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"title\": {\"type\": \"string\"},\r",
+									"            \"description\": {\"type\": \"string\"},\r",
+									"            \"imgUrl\": {\"type\": \"string\"}\r",
+									"            },\r",
+									"            \"imagen\": [{\r",
+									"                \"id\": {\"type\": \"integer\"},\r",
+									"                \"title\": {\"type\": \"string\"},\r",
+									"                \"url\": {\"type\": \"string\"}\r",
+									"            }],\r",
+									"            \"caracteristica\": {\r",
+									"                \"id\": {\"type\": \"integer\"},\r",
+									"                \"kitchen\": {\"type\": \"boolean\"},\r",
+									"                \"tv\": {\"type\": \"boolean\"},\r",
+									"                \"airConditioning\": {\"type\": \"boolean\"},\r",
+									"                \"petsAllowed\": {\"type\": \"boolean\"},\r",
+									"                \"freeParking\": {\"type\": \"boolean\"},\r",
+									"                \"pool\": {\"type\": \"boolean\"},\r",
+									"                \"wifi\": {\"type\": \"boolean\"}\r",
+									"            },\r",
+									"            \"ciudad\": {\r",
+									"                \"id\": {\"type\": \"long\"},\r",
+									"                \"city\": {\"type\": \"string\"},\r",
+									"                \"pais\": {\r",
+									"                    \"id\": {\"type\": \"long\"},\r",
+									"                    \"pais\": {\"type\": \"string\"}\r",
+									"                }\r",
+									"            },\r",
+									"            \"nombreReserva\": {\"type\": \"string\"},\r",
+									"            \"apellidoReserva\": {\"type\": \"string\"},\r",
+									"            \"emailReserva\": {\"type\": \"string\"},\r",
+									"            \"telefonoReserva\": {\"type\": \"string\"},\r",
+									"            \"comentarios\": {\"type\": \"string\"},\r",
+									"            \"vacunacion\": {\"type\": \"boolean\"}\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"tv4.addSchema('reservaSchema', reservaSchema);\r",
+									"\r",
+									"pm.test(\"Reservas schemas is valid\", () => {\r",
+									"    pm.expect(tv4.validate(jsonData, reservaSchema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}reservas/list",
+							"host": [
+								"{{URL}}reservas"
+							],
+							"path": [
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Reservas load must be valid and have a body\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.response.to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"let reservaSchema = {\r",
+									"    \"properties\": {\r",
+									"        \"id\": {\"type\": \"integer\"},\r",
+									"        \"horaComienzo\": {\"type\": \"LocalTime\"},\r",
+									"        \"fechaInicio\": {\"type\": \"LocalDate\"},\r",
+									"        \"fechaFin\": {\"type\": \"LocalDate\"},\r",
+									"        \"usuario\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"nombre\": {\"type\": \"string\"},\r",
+									"            \"apellido\": {\"type\": \"string\"},\r",
+									"            \"email\": {\"type\": \"string\"},\r",
+									"            \"contraseña\": {\"type\": \"string\"},\r",
+									"            \"telefono\": {\"type\": \"string\"},\r",
+									"            \"roles\": {\r",
+									"                \"id\": {\"type\": \"integer\"},\r",
+									"                \"name\": {\"type\": \"string\"}\r",
+									"            }\r",
+									"        },\r",
+									"        \"producto\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"name\": {\"type\": \"string\"},\r",
+									"            \"title\": {\"type\": \"string\"},\r",
+									"            \"description\": {\"type\": \"string\"},\r",
+									"            \"longitud\": {\"type\": \"string\"},\r",
+									"            \"latitud\": {\"type\": \"string\"},\r",
+									"            \"domicilio\": {\"type\": \"string\"},\r",
+									"            \"categoria\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"title\": {\"type\": \"string\"},\r",
+									"            \"description\": {\"type\": \"string\"},\r",
+									"            \"imgUrl\": {\"type\": \"string\"}\r",
+									"            },\r",
+									"            \"imagen\": [{\r",
+									"                \"id\": {\"type\": \"integer\"},\r",
+									"                \"title\": {\"type\": \"string\"},\r",
+									"                \"url\": {\"type\": \"string\"}\r",
+									"            }],\r",
+									"            \"caracteristica\": {\r",
+									"                \"id\": {\"type\": \"integer\"},\r",
+									"                \"kitchen\": {\"type\": \"boolean\"},\r",
+									"                \"tv\": {\"type\": \"boolean\"},\r",
+									"                \"airConditioning\": {\"type\": \"boolean\"},\r",
+									"                \"petsAllowed\": {\"type\": \"boolean\"},\r",
+									"                \"freeParking\": {\"type\": \"boolean\"},\r",
+									"                \"pool\": {\"type\": \"boolean\"},\r",
+									"                \"wifi\": {\"type\": \"boolean\"}\r",
+									"            },\r",
+									"            \"ciudad\": {\r",
+									"                \"id\": {\"type\": \"long\"},\r",
+									"                \"city\": {\"type\": \"string\"},\r",
+									"                \"pais\": {\r",
+									"                    \"id\": {\"type\": \"long\"},\r",
+									"                    \"pais\": {\"type\": \"string\"}\r",
+									"                }\r",
+									"            },\r",
+									"            \"nombreReserva\": {\"type\": \"string\"},\r",
+									"            \"apellidoReserva\": {\"type\": \"string\"},\r",
+									"            \"emailReserva\": {\"type\": \"string\"},\r",
+									"            \"telefonoReserva\": {\"type\": \"string\"},\r",
+									"            \"comentarios\": {\"type\": \"string\"},\r",
+									"            \"vacunacion\": {\"type\": \"boolean\"}\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"tv4.addSchema('reservaSchema', reservaSchema);\r",
+									"\r",
+									"pm.test(\"Reservas schemas is valid\", () => {\r",
+									"    pm.expect(tv4.validate(jsonData, reservaSchema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}reservas/productos/1",
+							"host": [
+								"{{URL}}reservas"
+							],
+							"path": [
+								"productos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Reservas load must be valid and have a body\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.response.to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"let reservaSchema = {\r",
+									"    \"properties\": {\r",
+									"        \"id\": {\"type\": \"integer\"},\r",
+									"        \"horaComienzo\": {\"type\": \"LocalTime\"},\r",
+									"        \"fechaInicio\": {\"type\": \"LocalDate\"},\r",
+									"        \"fechaFin\": {\"type\": \"LocalDate\"},\r",
+									"        \"usuario\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"nombre\": {\"type\": \"string\"},\r",
+									"            \"apellido\": {\"type\": \"string\"},\r",
+									"            \"email\": {\"type\": \"string\"},\r",
+									"            \"contraseña\": {\"type\": \"string\"},\r",
+									"            \"telefono\": {\"type\": \"string\"},\r",
+									"            \"roles\": {\r",
+									"                \"id\": {\"type\": \"integer\"},\r",
+									"                \"name\": {\"type\": \"string\"}\r",
+									"            }\r",
+									"        },\r",
+									"        \"producto\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"name\": {\"type\": \"string\"},\r",
+									"            \"title\": {\"type\": \"string\"},\r",
+									"            \"description\": {\"type\": \"string\"},\r",
+									"            \"longitud\": {\"type\": \"string\"},\r",
+									"            \"latitud\": {\"type\": \"string\"},\r",
+									"            \"domicilio\": {\"type\": \"string\"},\r",
+									"            \"categoria\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"title\": {\"type\": \"string\"},\r",
+									"            \"description\": {\"type\": \"string\"},\r",
+									"            \"imgUrl\": {\"type\": \"string\"}\r",
+									"            },\r",
+									"            \"imagen\": [{\r",
+									"                \"id\": {\"type\": \"integer\"},\r",
+									"                \"title\": {\"type\": \"string\"},\r",
+									"                \"url\": {\"type\": \"string\"}\r",
+									"            }],\r",
+									"            \"caracteristica\": {\r",
+									"                \"id\": {\"type\": \"integer\"},\r",
+									"                \"kitchen\": {\"type\": \"boolean\"},\r",
+									"                \"tv\": {\"type\": \"boolean\"},\r",
+									"                \"airConditioning\": {\"type\": \"boolean\"},\r",
+									"                \"petsAllowed\": {\"type\": \"boolean\"},\r",
+									"                \"freeParking\": {\"type\": \"boolean\"},\r",
+									"                \"pool\": {\"type\": \"boolean\"},\r",
+									"                \"wifi\": {\"type\": \"boolean\"}\r",
+									"            },\r",
+									"            \"ciudad\": {\r",
+									"                \"id\": {\"type\": \"long\"},\r",
+									"                \"city\": {\"type\": \"string\"},\r",
+									"                \"pais\": {\r",
+									"                    \"id\": {\"type\": \"long\"},\r",
+									"                    \"pais\": {\"type\": \"string\"}\r",
+									"                }\r",
+									"            },\r",
+									"            \"nombreReserva\": {\"type\": \"string\"},\r",
+									"            \"apellidoReserva\": {\"type\": \"string\"},\r",
+									"            \"emailReserva\": {\"type\": \"string\"},\r",
+									"            \"telefonoReserva\": {\"type\": \"string\"},\r",
+									"            \"comentarios\": {\"type\": \"string\"},\r",
+									"            \"vacunacion\": {\"type\": \"boolean\"}\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"tv4.addSchema('reservaSchema', reservaSchema);\r",
+									"\r",
+									"pm.test(\"Reservas schemas is valid\", () => {\r",
+									"    pm.expect(tv4.validate(jsonData, reservaSchema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}reservas/usuarios/1",
+							"host": [
+								"{{URL}}reservas"
+							],
+							"path": [
+								"usuarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Reservas load must be valid and have a body\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.response.to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"let reservaSchema = {\r",
+									"    \"properties\": {\r",
+									"        \"id\": {\"type\": \"integer\"},\r",
+									"        \"usuario\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"nombre\": {\"type\": \"string\"},\r",
+									"            \"apellido\": {\"type\": \"string\"},\r",
+									"            \"email\": {\"type\": \"string\"},\r",
+									"            \"contraseña\": {\"type\": \"string\"},\r",
+									"            \"telefono\": {\"type\": \"string\"},\r",
+									"            \"roles\": {\r",
+									"                \"id\": {\"type\": \"integer\"},\r",
+									"                \"name\": {\"type\": \"string\"}\r",
+									"            },\r",
+									"            \"enable\": {\"type\": \"boolean\"},\r",
+									"            \"verificationCode\": {\"type\": \"string\"}\r",
+									"        },\r",
+									"        \"producto\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"name\": {\"type\": \"string\"},\r",
+									"            \"title\": {\"type\": \"string\"},\r",
+									"            \"description\": {\"type\": \"string\"},\r",
+									"            \"longitud\": {\"type\": \"string\"},\r",
+									"            \"latitud\": {\"type\": \"string\"},\r",
+									"            \"domicilio\": {\"type\": \"string\"},\r",
+									"            \"categoria\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"title\": {\"type\": \"string\"},\r",
+									"            \"description\": {\"type\": \"string\"},\r",
+									"            \"imgUrl\": {\"type\": \"string\"}\r",
+									"            },\r",
+									"            \"imagen\": [{\r",
+									"                \"id\": {\"type\": \"integer\"},\r",
+									"                \"title\": {\"type\": \"string\"},\r",
+									"                \"url\": {\"type\": \"string\"}\r",
+									"            }],\r",
+									"            \"caracteristica\": {\r",
+									"                \"id\": {\"type\": \"integer\"},\r",
+									"                \"kitchen\": {\"type\": \"boolean\"},\r",
+									"                \"tv\": {\"type\": \"boolean\"},\r",
+									"                \"airConditioning\": {\"type\": \"boolean\"},\r",
+									"                \"petsAllowed\": {\"type\": \"boolean\"},\r",
+									"                \"freeParking\": {\"type\": \"boolean\"},\r",
+									"                \"pool\": {\"type\": \"boolean\"},\r",
+									"                \"wifi\": {\"type\": \"boolean\"}\r",
+									"            },\r",
+									"            \"ciudad\": {\r",
+									"                \"id\": {\"type\": \"long\"},\r",
+									"                \"city\": {\"type\": \"string\"},\r",
+									"                \"pais\": {\r",
+									"                    \"id\": {\"type\": \"long\"},\r",
+									"                    \"pais\": {\"type\": \"string\"}\r",
+									"                }\r",
+									"            },\r",
+									"            \"puntuacion\": {\"type\": \"double\"},\r",
+									"            \"nombreReserva\": {\"type\": \"string\"},\r",
+									"            \"apellidoReserva\": {\"type\": \"string\"},\r",
+									"            \"emailReserva\": {\"type\": \"string\"},\r",
+									"            \"telefonoReserva\": {\"type\": \"string\"},\r",
+									"            \"comentarios\": {\"type\": \"string\"},\r",
+									"            \"vacunacion\": {\"type\": \"boolean\"}\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"tv4.addSchema('reservaSchema', reservaSchema);\r",
+									"\r",
+									"pm.test(\"Reservas schemas is valid\", () => {\r",
+									"    pm.expect(tv4.validate(jsonData, reservaSchema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}reservas/38",
+							"host": [
+								"{{URL}}reservas"
+							],
+							"path": [
+								"38"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Puntuacion",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", () => {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokenDeAcceso}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"puntuacion\": 2.0,\r\n    \"usuario\": {\"id\":1},\r\n    \"productos\": {\"id\":1}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}puntuaciones",
+							"host": [
+								"{{URL}}puntuaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Puntuaciones load must be valid and have a body\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"    pm.response.to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"let puntuacionSchema = {\r",
+									"    \"properties\": {\r",
+									"        \"id\": {\"type\": \"integer\"},\r",
+									"        \"puntuacion\": {\"type\": \"double\"},\r",
+									"        \"productos\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"name\": {\"type\": \"string\"},\r",
+									"            \"title\": {\"type\": \"string\"},\r",
+									"            \"description\": {\"type\": \"string\"},\r",
+									"            \"longitud\": {\"type\": \"string\"},\r",
+									"            \"latitud\": {\"type\": \"string\"},\r",
+									"            \"domicilio\": {\"type\": \"string\"},\r",
+									"            \"categoria\": {\r",
+									"                \"id\": {\"type\": \"integer\"},\r",
+									"                \"title\": {\"type\": \"string\"},\r",
+									"                \"description\": {\"type\": \"string\"},\r",
+									"                \"imgUrl\": {\"type\": \"string\"}\r",
+									"            },\r",
+									"            \"imagen\": [\r",
+									"                {\r",
+									"                    \"id\": {\"type\": \"integer\"},\r",
+									"                    \"title\": {\"type\": \"string\"},\r",
+									"                    \"url\": {\"type\": \"string\"}\r",
+									"                }\r",
+									"            ],\r",
+									"            \"caracteristica\": {\r",
+									"                \"id\": {\"type\": \"integer\"},\r",
+									"                \"kitchen\": {\"type\": \"boolean\"},\r",
+									"                \"tv\": {\"type\": \"boolean\"},\r",
+									"                \"airConditioning\": {\"type\": \"boolean\"},\r",
+									"                \"petsAllowed\": {\"type\": \"boolean\"},\r",
+									"                \"freeParking\": {\"type\": \"boolean\"},\r",
+									"                \"pool\": {\"type\": \"boolean\"},\r",
+									"                \"wifi\": {\"type\": \"boolean\"}\r",
+									"            },\r",
+									"            \"ciudad\": {\r",
+									"                \"id\": {\"type\": \"integer\"},\r",
+									"                \"city\": {\"type\": \"string\"},\r",
+									"                \"pais\": {\r",
+									"                    \"id\": {\"type\": \"integer\"},\r",
+									"                    \"pais\": {\"type\": \"string\"}\r",
+									"                }\r",
+									"            },\r",
+									"            \"puntuacion\": {\"type\": \"double\"}\r",
+									"        },\r",
+									"        \"usuario\": {\r",
+									"            \"id\": {\"type\": \"integer\"},\r",
+									"            \"nombre\": {\"type\": \"string\"},\r",
+									"            \"apellido\": {\"type\": \"string\"},\r",
+									"            \"email\": {\"type\": \"string\"},\r",
+									"            \"contraseña\": {\"type\": \"string\"},\r",
+									"            \"telefono\": {\"type\": \"string\"},\r",
+									"            \"roles\": {\r",
+									"                \"id\": {\"type\": \"integer\"},\r",
+									"                \"name\": {\"type\": \"string\"}\r",
+									"            }\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"tv4.addSchema('puntuacionSchema', puntuacionSchema);\r",
+									"\r",
+									"pm.test(\"Puntuaciones schemas is valid\", () => {\r",
+									"    pm.expect(tv4.validate(jsonData, puntuacionSchema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}puntuaciones/list",
+							"host": [
+								"{{URL}}puntuaciones"
+							],
+							"path": [
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:8080/",
+			"type": "string"
+		}
+	]
+}

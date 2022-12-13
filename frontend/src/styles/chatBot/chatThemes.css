@@ -1,0 +1,17 @@
+.chatThemesContainer {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.chatThemesButton {
+  padding: 0.5rem;
+  border-radius: 25px;
+  background: transparent;
+  border: 1px solid var(--third-color);
+  margin: 3px;
+}
+
+.chatThemesButton:hover {
+  cursor: pointer;
+}

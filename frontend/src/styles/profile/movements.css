@@ -1,0 +1,150 @@
+.movements{
+    display: flex;
+    flex-direction: column;
+    padding-left: 3px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.movements__title{
+    font-size: 30px;
+    color: var(--principal-color);
+    display: flex;
+    padding: 15px 15px 5px 30px;
+}
+
+.movements__title span{
+    padding-left: 10px;
+    color:#333;
+}
+
+.movements__title2{
+    color: #333;
+    font-size: 14px;
+    display: flex;
+    padding: 0px 15px 10px 30px;
+    border-bottom: 1px solid #42494D;
+}
+
+.movements__currency{
+    width: 100px;
+}
+
+.movements__details{
+    line-height: 18px;
+    font-size: 16px;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 30px 8px 30px;
+}
+
+.movements__country{
+    color: var(--principal-color);
+    font-size: 14px;
+}
+
+.movements__details_text{
+    width: 100px;
+    text-align: start;
+    display: flex;
+    align-items: center;
+}
+
+.movements__type{
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 30px 8px 30px;
+    border-bottom: 1px solid #42494D;
+}
+
+.movements__type div{
+    font-weight: 500;
+}
+.movements__details_id{
+    width: 35px;
+}
+
+.movements__details_name{
+    width: 250px;
+}
+
+.movements__check, .movements__hour, .movements__location{
+    width: 100px;
+}
+.movements__star{
+    display: flex;
+    justify-content: center;
+    color: var(--principal-color);
+    width: 95px;
+    padding-left: 20px;
+}
+
+.movements__star div{
+    font-weight: 500;
+}
+
+#movements__star__text{
+    color: #333;
+    width: 80px;
+    padding-left: 0px;
+}
+.movements__null{
+    padding: 15px;
+}
+
+#movements__valorado{
+    cursor: default;
+}
+
+#movements__star_click{
+    cursor: pointer;
+}
+#movements__star_click:hover{
+    color: var(--third-color);
+    transition: .5s;
+}
+ @media screen and (max-width: 1000px) {
+    .movements__check{
+        display: none;
+    }
+    .status{
+        display: none;
+    }
+    .movements__title{
+        font-size: 20px;
+    }
+    .movements__title2{
+        padding: 10px 30px;
+    }
+   
+ }
+
+ @media screen and (max-width: 500px) {
+    .movements__details_name{
+        width: 150px;
+        font-size: 15px;
+    }
+    .movements__location{
+        font-size: 15px;
+    }
+    .movements__check{
+        display: none;
+    }
+    .movements__hour{
+        display: none;
+    }
+    .status{
+        display: none;
+    }
+    .movements__title{
+        font-size: 20px;
+    }
+    .movements__title2{
+        padding: 5px 10px;
+    }
+    #stars__details{
+        width: 87px;
+    }
+ }

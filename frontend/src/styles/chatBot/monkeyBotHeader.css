@@ -1,0 +1,6 @@
+.monkeyBotHeader {
+  background-color: var(--second-color);
+  padding: 15px;
+  color: white;
+  border-radius: 8px;
+}

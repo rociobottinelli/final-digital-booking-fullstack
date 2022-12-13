@@ -1,0 +1,91 @@
+.cardProducts {
+  padding: 20px;
+}
+.intro {
+  margin: 10px;
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: var(--second-color);
+}
+.newPublic {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--second-color);
+  margin-bottom: 20px;
+}
+.plusIcon {
+  font-size: 20px;
+  margin-right: 5px;
+}
+.btnLoadProduct {
+  background-color: var(--third-color);
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: transparent;
+  letter-spacing: 0.5px;
+  box-shadow: 3px 3px 3px gray;
+}
+.btnLoadProduct:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+.divNewProduct {
+  padding: 50px 10px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to top, transparent 0.5%, #b3b1b5 70%);
+}
+.title {
+  font-size: 28px;
+  margin-top: 35px;
+  color: var(--second-color);
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+.line {
+  border: 1px solid var(--principal-color);
+  margin-bottom: 25px;
+}
+.cardProducts {
+  display: flex;
+  flex-direction: column;
+}
+.productAdminCard {
+  margin-bottom: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.btnEditPublic {
+  margin-top: 8px;
+  color: var(--second-color);
+  padding: 8px 30px;
+  border-radius: 8px;
+  border: transparent;
+  letter-spacing: 0.5px;
+  box-shadow: 3px 3px 3px gray;
+}
+.btnEditPublic:hover {
+  cursor: pointer;
+  transform: scale(1.01);
+  transition: 0.3s;
+}
+.editIcon {
+  margin-right: 5px;
+}
+.cardDivider {
+  border: 1px solid gray;
+  margin-top: 25px;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+ 
+.cardDivider {
+  width: 70%;
+}
+}

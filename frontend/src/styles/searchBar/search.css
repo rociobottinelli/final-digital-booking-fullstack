@@ -1,0 +1,213 @@
+body {
+  margin: 0;
+}
+.containerSearch {
+  position: absolute;
+  height: 100vh;
+}
+.closeHeigth {
+  position: inherit;
+}
+.searchDiv {
+  width: 100%;
+  height: auto;
+  background: #545776;
+  text-align: center;
+  padding: 28px 10px 10px;
+}
+
+.searchDiv h1 {
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.css-b62m3t-container {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 1px 5px 0px #00000026;
+  height: 38px;
+  max-width: 422px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.css-qc6sy-singleValue{
+  color: #7f7f7f !important;
+}
+
+.css-1hb7zxy-IndicatorsContainer{
+  display: none !important;
+}
+
+.containerCalendar {
+  background-color: white;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 9px;
+  font-size: 14px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 5px;
+}
+
+.customIconCalendar {
+  padding: 0 5px;
+  color: #7f7f7f;
+}
+
+.custom-input {
+  border: 0px white solid;
+  background-color: white;
+  box-shadow: 0px 0px 0px 0px white;
+  font-weight: 500;
+  font-size: 14px;
+  font-family: Roboto;
+  width: 200px;
+  padding-top: 3px;
+}
+.custom-input:focus {
+  display: none;
+}
+
+.searchButton {
+  height: 40px;
+  color: #ffffff;
+  background: #1dbeb4;
+  width: 100%;
+  box-shadow: 0px 2px 4px 0px #0000001f;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+.searchForm__select{
+  display: flex;
+  width: 100%;
+}
+
+.css-b62m3t-container, .css-82udf7-control, .css-82udf7-control, .css-6mpbj4-control{
+  cursor: pointer !important;
+}
+
+
+@media (min-width: 768px) {
+  .searchForm__select{
+    display: flex;
+    width: unset;
+  }
+  .containerSearch {
+    position: sticky;
+    top: 99px;
+    margin-top: -86vh;
+    height: 100vh;
+  }
+  .closeHeigth {
+    position: sticky;
+    top: 99px;
+    margin-top: 0px;
+  }
+  .searchDiv {
+    position: sticky;
+    top: 99px;
+  }
+  .searchDiv h1 {
+    font-weight: bold;
+  }
+  .searchForm {
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .css-b62m3t-container {
+    width: 254px;
+    margin-bottom: 0px;
+  }
+  .containerCalendar {
+    height: 40px;
+    width: 300px;
+    margin-left: 13px;
+    margin-bottom: 0px;
+  }
+
+  .searchButton {
+    height: 40px;
+    width: 166px;
+    margin-left: 13px;
+  }
+
+  .searchButton:hover {
+    background-color: #18a79d;
+    transition: 0.3s;
+  }
+}
+@media (min-width: 1366px) {
+  .containerSearch {
+    top: 80px;
+    margin-top: -80.5vh;
+  }
+  .closeHeigth {
+    top: 80px;
+  }
+  .searchDiv {
+    top: 80px;
+  }
+
+  .searchDiv h1 {
+    font-size: 36px;
+  }
+
+  .searchForm {
+    justify-content: center;
+  }
+  .css-b62m3t-container {
+    min-width: 422px;
+    margin-bottom: 0px;
+  }
+  .contentSelect {
+    width: 100%;
+    margin-bottom: 0px;
+  }
+
+  .containerCalendar {
+    width: 422px;
+    margin-left: 10px;
+  }
+  .searchSelect {
+    height: 40px;
+  }
+
+  .searchButton {
+    width: 206px;
+    margin-left: 10px;
+  }
+}
+
+@media (min-width: 768px) and (min-height: 580px){
+  .containerSearch {
+    margin-top: -74.2vh;
+  }
+}
+
+@media (min-width: 768px) and (min-height: 786px){
+  .containerSearch {
+    margin-top: -80.5vh;
+  }
+}
+
+@media (min-width: 768px) and (min-height: 1024px){
+  .containerSearch {
+    margin-top: -86vh;
+  }
+}

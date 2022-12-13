@@ -1,0 +1,131 @@
+#PaymentForm{
+    z-index: 100;
+    position: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 57px;
+    padding-top: 100px;
+    text-align: center;
+    height: 100vh;
+    background-color: rgba(56, 59, 88, .95);
+}
+
+.paymentBack > div > div{
+    -webkit-transform: rotateY(180deg)!important ;
+    transform: rotateY(180deg) !important;
+}
+
+.reservationCreditCard__form{
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.reservationCreditCard__form div{
+    display: flex;
+    width: 300px;
+    padding-bottom: 10px;
+    justify-content: space-between;
+}
+
+.row{
+    display: flex;
+}
+
+.row div{
+    width: 140px;
+}
+
+.rccs{
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+}
+
+#reservationCreditCard__button{
+    border: 0;
+    background-color: var(--principal-color);
+    padding: 10px 10px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+#reservationCreditCard__buttonCancel{
+    border: 0;
+    background-color: rgba(255, 0, 0, 0.705);
+    padding: 10px 10px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.form-actions {
+    justify-content: center !important;
+}
+.form-actions span{
+    margin: 5px 10px;
+}
+
+.rccs__expiry__valid{
+    visibility: hidden;
+}
+
+.reservationPayment{
+    display: flex;
+    padding-bottom: 15px;
+    justify-content: center;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--principal-color);
+}
+
+.reservationPayment div{
+    padding: 10px;
+    border-radius: 15px;
+    color: var(--principal-color);
+}
+
+.reservationPayment div:hover{
+    transition: 1s;
+    color: white;
+    background-color: var(--principal-color);
+}
+
+.acceptedCards{
+    display: flex;
+    margin-top: 20px;
+    color: white;
+    opacity: .9;
+}
+
+#reservation__bot div {
+    width: 48%;
+}
+
+@media (min-width: 768px) {
+    .row div{
+        width: 240px;
+    }
+    .reservationCreditCard__form div{
+        width: 400px;
+    }
+    .rccs{
+        margin-top: 150px !important;
+    }
+    
+}
+
+
+@media (min-width: 1023px) {
+    .rccs{
+        margin-top: 50px !important;
+    }
+    .row div{
+        width: 240px;
+    }
+}
+
+

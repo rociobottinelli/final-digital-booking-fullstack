@@ -1,0 +1,46 @@
+.reviewsContainer {
+  margin-top: 70px;
+  margin-bottom: 20px;
+  padding: 0px 10px;
+}
+.reviewsContainer h2 {
+  font-weight: 700;
+  padding: 0px 0px 15px 10px;
+  color: #383b58;
+  font-size: 24px;
+  margin-left: 8px;
+}
+.sectionDivider {
+  margin-bottom: 25px;
+  border: 1px solid var(--principal-color);
+  width: 100%;
+}
+
+.emptyReviews h3{
+  color: #333;
+  font-weight: 500;
+  font-size: 20px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .reviewsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .individualReviewCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+@media (min-width: 1366px) {
+  .reviewsCards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .individualReviewCard {
+    width: 30%;
+  }
+}

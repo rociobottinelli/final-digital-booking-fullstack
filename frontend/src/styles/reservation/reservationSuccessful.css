@@ -1,0 +1,47 @@
+.reservationSuccessful{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 25px;
+    height: 250px;
+    width: 270px;
+    align-items: center;
+    justify-content: center;
+    color: var(--second-color);
+    padding-top: 30px;
+}
+
+.reservationSuccessful h2{
+    margin-top: 25px;
+    text-align: center;
+    color: var(--third-color);
+}
+
+.mono__succs{
+    margin-bottom: -76px;
+    height: 250px;
+    width: 270px;
+    justify-content: center;
+    z-index: 1;
+}
+
+.button__successful{
+    background-color: var(--third-color);
+    color: white;
+    border: 0;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button__successful:hover{  
+    background-color: var(--second-color);
+    transition: .4s;
+}
+
+.icon__successfull{
+    margin-top: 12px;
+    font-size: 70px;
+    color: var(--principal-color);
+    font-weight: 700;
+}

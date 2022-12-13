@@ -1,0 +1,68 @@
+.activitiesBannerMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.activitiesBannerMain__banner{
+    width: 100%;
+}
+.activitiesBannerMain__banner img{
+    width: 100%;
+    height: 150px;
+}
+
+.activitiesBannerMain__select{
+    position: absolute;
+    display: flex;
+    margin-top: 45px;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.activitiesBannerMain__select__cities{
+    display: flex;
+    width: 250px;
+    border-radius: 20px;
+}
+
+.activitiesBannerMain__select__button{
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+.activitiesBannerMain__select__button button{
+    border: 0;
+    background-color: var(--principal-color);
+    color: white;
+    padding: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .activitiesBannerMain__select__cities{
+        width: 350px;
+    }
+    .activitiesBannerMain__select__button{
+        margin-top: 0px;
+    }
+   
+}
+@media (min-width: 1025px) {
+    .activitiesBannerMain__select{
+        margin-top: 75px;
+    }
+    .activitiesBannerMain__banner img{
+        height: unset;
+    }
+    .activitiesBannerMain__select__button{
+        margin-top: 10px;
+    }
+    .activitiesBannerMain__select__button button{
+        padding: 12px 30px;
+    }
+    .activitiesBannerMain__select__cities{
+        width: unset;
+    }
+}

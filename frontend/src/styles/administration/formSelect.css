@@ -1,0 +1,23 @@
+.generalContainer > .select__cities p {
+  color: #4f4f50;
+  font-size: 12px;
+  font-weight: 400;
+}
+#category > div:nth-child(2n),
+#city > div:nth-child(2n) {
+  width: 30em !important;
+}
+
+@media (min-width: 768px) {
+  #category > div:nth-child(2n),
+  #city > div:nth-child(2n) {
+    width: 27em !important;
+  }
+}
+
+@media (min-width: 1366px) {
+  #category > div:nth-child(2n),
+  #city > div:nth-child(2n) {
+    width: 52em !important;
+  }
+}

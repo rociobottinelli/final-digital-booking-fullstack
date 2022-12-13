@@ -1,0 +1,132 @@
+.productsCarousel{
+    width: 100%;
+    display: none;
+}
+
+.productsCarousel div div{
+    width: unset;
+    height: unset;
+}
+
+.slick-arrow{
+    z-index: 1;
+    margin: 0px 50px;
+    border-radius: 100px;
+}
+
+.slick-next:before{
+    opacity: none;
+    font-size: 35px;
+    border-radius: 100px;
+}
+
+.slick-prev:before{
+    opacity: none;
+    font-size: 35px;
+    border-radius: 100px;
+}
+
+button.slick-arrow.slick-next{
+    opacity: none;
+    width: 35px;
+    height: 35px;
+    padding-top: 2px;
+    background-color: var(--third-color);
+    border-radius: 100px;
+}
+
+button.slick-arrow.slick-prev{
+    opacity: none;
+    width: 35px;
+    height: 35px;
+    padding-top: 2px;
+    background-color: var(--third-color);
+    border-radius: 100px;
+}
+
+button.slick-arrow.slick-prev::before{
+    opacity: 1 !important;
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
+}
+
+button.slick-arrow.slick-next::before{
+    opacity: 1 !important;
+    }
+
+.slick-dots li.slick-active button:before{
+    color: var(--principal-color)
+}    
+
+.productsCarousel__number{
+    position: absolute;
+}
+
+.slick-dots{
+    font-weight: 500;
+    padding-right: 20px;
+    display: flex !important;
+    justify-content: flex-end;
+}
+
+.slick-dots > li{
+    display: none;
+}
+
+.slick-active{
+    display: flex !important;
+    position: relative !important;;
+}
+
+.products__img__carousel h3 img{
+    height: 620px;
+    width: 100%;
+    min-width: 912px;
+}
+
+@media (max-width: 913px) {
+    .productsCarousel{
+        display: unset;
+    }
+    .productsCarousel div div {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .productsCarousel div div {
+        width: 100%;
+    }
+    .products__img__carousel h3 img {
+        height: 300px;
+        min-width: unset;
+        width: 100%;
+    }
+    .productsCarousel{
+        display: unset;
+    }
+    .slick-next:before{
+        opacity: none;
+        font-size: 25px;
+        border-radius: 100px;
+    }
+    
+    .slick-prev:before{
+        font-size: 25px
+    }
+    button.slick-arrow.slick-next{
+        width: 25px;
+        height: 25px;
+        padding-top: 2px;
+    }
+    
+    button.slick-arrow.slick-prev{
+        width: 25px;
+        height: 25px;
+        padding-top: 2px;
+    }
+    
+}
+
+

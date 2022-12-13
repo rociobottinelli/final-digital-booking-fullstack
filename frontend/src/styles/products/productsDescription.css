@@ -1,0 +1,29 @@
+.productsDescription {
+  padding: 40px;
+}
+
+.productsDescription h3 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #383b58;
+  padding-bottom: 30px;
+}
+
+.productsDescription p {
+  color: #383b58;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+}
+
+@media (max-width: 900px) {
+}
+
+@media (max-width: 500px) {
+  .productsDescription {
+    padding: 20px;
+  }
+}

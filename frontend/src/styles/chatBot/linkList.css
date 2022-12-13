@@ -1,0 +1,20 @@
+.listContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.link-list-item {
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.link-list-item-url {
+  margin: 6px;
+  display: block;
+  color: var(--second-color);
+  background-color: var(--fourth-color);
+  padding: 8px;
+  border-radius: 3px;
+  box-shadow: 2px 2px 4px rgba(150, 149, 149, 0.4);
+}

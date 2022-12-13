@@ -1,0 +1,128 @@
+.activitiesBlockHome{
+    margin-bottom: 15px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 20px 20px;
+    background-color: var(--fourth-color);
+}
+
+.activitiesBlockHome__container a{
+    margin: 10px 0px;
+}
+
+.activitiesBlockHome > h2{
+    color: var(--second-color);
+    margin-bottom: 25px;
+}
+.activitiesBlockHome__container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.activitiesBlockHome__card{
+    border-radius: 7px;
+    padding-bottom: 15px;
+    background-color: white;
+    box-shadow: 3px 3px 3px rgb(0 0 0 / 25%);
+}
+
+.activitiesBlockHome__card:hover{
+    box-shadow: 5px 5px 3px 3px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.activitiesBlockHome__card img{
+    width: 100%;
+    height: 200px;
+    border-radius: 7px 7px 0 0;
+}
+
+.activitiesBlockHome__card h3{
+    padding-left: 10px;
+    color: var(--second-color);
+}
+
+.activitiesBlockHome__card__city{
+    padding-left: 10px;
+    font-size: 14px;
+    color: gray;
+    font-weight: 500;
+}
+
+#activitiesBlockHome__card__stars{
+    padding-left: 10px;
+}
+
+.activitiesBlockHome__card__bot{
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+  }
+  
+
+.activitiesBlockHome__card__puntaje span{
+    margin-right: 15px;
+    background-color: var(--second-color);
+    color: white;
+    font-weight: 500;
+    padding: 7px 10px;
+    border-radius: 15px;
+  }
+
+  .activitiesBlockHome__seeMore{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .activitiesBlockHome__seeMore a button{
+    border: 0;
+    background-color: unset;
+    margin-top: 25px;
+    color: var(--second-color);
+    font-weight: 600;
+    font-size: 17px;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+
+  .activitiesBlockHome__seeMore a button:hover{
+    color: rgb(92, 91, 91);
+    transition: .5s;
+  }
+
+  @media (min-width: 768px) {
+    .activitiesBlockHome__card img {
+        width: 350px;
+    }
+    .activitiesBlockHome{
+        padding: 20px 30px;
+    }
+    .activitiesBlockHome__container{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    .activitiesBlockHome__container a{
+        width: 50%;
+        padding: 5px;
+    }
+}
+@media (min-width: 1025px) {
+    .activitiesBlockHome{
+        padding: 20px 55px
+    }
+    .activitiesBlockHome__container{
+        flex-direction: row;
+    }
+    .activitiesBlockHome__container a {
+        width: 24%;
+    }
+    .activitiesBlockHome > h2 {
+        color: var(--second-color);
+        margin-bottom: 25px;
+    }
+}

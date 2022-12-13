@@ -1,0 +1,106 @@
+.personalDates__container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.personalDates__container__button button{
+    margin-right: 30px;
+    border: 0;
+    background-color: var(--third-color);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 155px;
+}
+
+.personalDates__container__button button:hover{
+    background-color: var(--second-color);
+    transition: .5s;
+}
+
+
+#personalDates__form, #personalDates__form2{
+    box-shadow: none;
+    margin: 20px 0px 15px 0px;
+}
+
+#personalDates__changesOK, #personalDates__changesOK2{
+    margin-top: 5px;
+    margin-right: 40px;
+    font-weight: 500;
+    color: #333;
+    transition:ease-in 1s;
+    height: 100%; 
+}
+
+#none{
+    visibility: hidden;
+}
+
+.personalDatesButton {
+    display: block;
+    position: relative;
+    height: 40px;
+    width: 150px;
+    margin: 0;
+    overflow: hidden;
+    margin-right: 25px;
+  }
+  
+  .personalDatesButton.changes {
+   padding-top: 5px;
+  }
+  
+  .personalDatesButton > span {
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    width: 135px;
+    height: 0%;
+    transition: 2s ease-in-out;
+    -webkit-transition: 2s ease-in-out;
+  }
+  
+  .personalDatesButton:after, .personalDatesButton > span > span {
+    display: block;
+    text-align: center;
+    border-radius: 0em;
+  }
+  
+  .personalDatesButton:after {
+    content: attr(data-title);
+    width: 135px;
+    background: #000;
+    color: #fff; 
+  }
+  
+  .personalDatesButton > span > span {
+   padding-top: 5px;
+    width: 135px;
+    color: #fff;
+  }
+  
+  .personalDatesButton.changes > span > span {
+    margin-top: -5px;
+    padding: 5px;
+    border-radius: 0px 0px 5px 5px;
+    background-color: #d0cfcc;
+    color: var(--second-color);
+    height: 30px; 
+    font-weight: 500;
+    border: 3px solid var(--third-color);
+    font-size: 13px;
+  }
+  
+  #menu > span {
+      height: 30px; 
+  }
+
+  .formError__dates{
+    color: red;
+    padding-top: 5px;
+  }

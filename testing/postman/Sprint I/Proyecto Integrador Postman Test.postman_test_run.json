@@ -1,0 +1,168 @@
+{
+	"id": "4794d6ee-385a-438c-97fd-d9af2525554e",
+	"name": "Proyecto Integrador Postman Test",
+	"timestamp": "2022-05-23T19:28:53.404Z",
+	"collection_id": "18029196-fec838cd-202a-4431-b3dc-d64fe7acfa52",
+	"folder_id": "18029196-610845f4-6b7c-473f-a0c7-e3743a7ec3dd",
+	"environment_id": "18029196-36394c45-601a-42ea-9976-85061cca5b7b",
+	"totalPass": 12,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "eb7fb490-45c2-4b8d-bceb-5dda4f4e7adc",
+			"name": "Create",
+			"time": 17,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Successful POST request": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 2,
+					"fail": 0
+				}
+			},
+			"times": [
+				21,
+				17
+			],
+			"allTests": [
+				{
+					"Successful POST request": true
+				},
+				{
+					"Successful POST request": true
+				}
+			]
+		},
+		{
+			"id": "9630312e-7569-48b4-be44-04cec20bdfc2",
+			"name": "Find all",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Categories load must be valid and have a body": true,
+				"Categories schema is valid": true,
+				"Categories found": true
+			},
+			"testPassFailCounts": {
+				"Categories load must be valid and have a body": {
+					"pass": 2,
+					"fail": 0
+				},
+				"Categories schema is valid": {
+					"pass": 2,
+					"fail": 0
+				},
+				"Categories found": {
+					"pass": 2,
+					"fail": 0
+				}
+			},
+			"times": [
+				15,
+				10
+			],
+			"allTests": [
+				{
+					"Categories load must be valid and have a body": true,
+					"Categories schema is valid": true,
+					"Categories found": true
+				},
+				{
+					"Categories load must be valid and have a body": true,
+					"Categories schema is valid": true,
+					"Categories found": true
+				}
+			]
+		},
+		{
+			"id": "ed1fdd49-c65a-4328-ad21-5daa35b8f428",
+			"name": "Update",
+			"time": 17,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Successful UPDATE request": true
+			},
+			"testPassFailCounts": {
+				"Successful UPDATE request": {
+					"pass": 2,
+					"fail": 0
+				}
+			},
+			"times": [
+				25,
+				17
+			],
+			"allTests": [
+				{
+					"Successful UPDATE request": true
+				},
+				{
+					"Successful UPDATE request": true
+				}
+			]
+		},
+		{
+			"id": "24b39b06-7eb1-4c7a-b5cd-fd409e0e5ddd",
+			"name": "Delete",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Successful DELETE request": true
+			},
+			"testPassFailCounts": {
+				"Successful DELETE request": {
+					"pass": 2,
+					"fail": 0
+				}
+			},
+			"times": [
+				15,
+				10
+			],
+			"allTests": [
+				{
+					"Successful DELETE request": true
+				},
+				{
+					"Successful DELETE request": true
+				}
+			]
+		}
+	],
+	"count": 2,
+	"totalTime": 130,
+	"collection": {
+		"requests": [
+			{
+				"id": "eb7fb490-45c2-4b8d-bceb-5dda4f4e7adc",
+				"method": "POST"
+			},
+			{
+				"id": "9630312e-7569-48b4-be44-04cec20bdfc2",
+				"method": "GET"
+			},
+			{
+				"id": "ed1fdd49-c65a-4328-ad21-5daa35b8f428",
+				"method": "PUT"
+			},
+			{
+				"id": "24b39b06-7eb1-4c7a-b5cd-fd409e0e5ddd",
+				"method": "DELETE"
+			}
+		]
+	}
+}

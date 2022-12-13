@@ -1,0 +1,87 @@
+.errorMono,
+.mono__buscar {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.mono__buscar h2 {
+  margin-bottom: 20px;
+}
+
+.errorMono h3,
+.mono__buscar h3 {
+  margin: 10px 0;
+  font-weight: normal;
+  font-size: 16px;
+  width: 400px;
+  text-align: center;
+}
+
+.mono__buscar img {
+  width: 450px;
+}
+
+.errorMono img {
+  width: 350px;
+}
+
+.errorMono span,
+.errorMono a {
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 5px 15px;
+  color: white;
+  background-color: #6a1b9a;
+}
+
+.mono__buscar span,
+.mono__buscar a {
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 5px 15px;
+  color: white;
+  background-color: #6d38c8;
+  margin-right: 15px;
+}
+
+.mono__buscar a {
+  align-items: center;
+  text-align: center;
+}
+
+.errorMono span:hover,
+.errorMono a:hover,
+.mono__buscar span:hover,
+.mono__buscar a:hover {
+  background-color: #7821af;
+  transition: 0.3s;
+}
+
+.errorMono__links {
+  flex-direction: row;
+}
+.errorMono__links a {
+  margin: 5px;
+}
+
+@media screen and (max-width: 500px) {
+  .errorMono h3 {
+    width: 290px;
+  }
+  .errorMono {
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+  .errorMono h3 {
+    margin: 5px 0;
+  }
+  .errorMono__links {
+    display: flex;
+    flex-direction: column;
+  }
+}

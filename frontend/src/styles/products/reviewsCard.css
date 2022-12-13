@@ -1,0 +1,53 @@
+.reviewCardDiv {
+    width: 95%;
+    height: auto;
+    border: 1px solid violet;
+    margin: 10px;
+    border-radius: 7px;
+    border: 1.5px solid var(--principal-color);
+    box-shadow: 0px 0px 5px 1px rgb(29 190 180 / 30%);
+    text-align:justify;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-direction: column;
+
+}
+.content {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.comment {
+    font-style: italic;
+    font-weight: 500;
+    text-indent: 15px;
+}
+
+.userIcon {
+    color: gray;
+    opacity: 0.7;
+    font-size: 55px;
+    padding: 15px;
+    padding-left: 0px;
+    
+}
+.containerWStars {
+    align-self: flex-end;
+    padding-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    .reviewCardDiv{
+        width: 40%;
+    }
+
+}
+@media (min-width: 1366px){
+
+    .reviewCardDiv{
+        width: 100%;
+    }
+}

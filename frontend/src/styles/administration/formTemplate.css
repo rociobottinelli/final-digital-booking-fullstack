@@ -1,0 +1,225 @@
+.formTemplateContainer {
+  padding-bottom: 50px;
+}
+
+.formTemplate__h3 {
+  background-color: #e5e5e540;
+  box-shadow: 0px 4px 4px 0px #0000000e;
+  color: var(--second-color);
+  padding: 20px 10px;
+}
+
+.formTemplate__h4,
+.formTemplate__h5 {
+  color: var(--third-color);
+}
+
+.formTemplate__h4 {
+  padding: 10px;
+}
+
+.formTemplate__h5 {
+  padding-left: 27px;
+}
+
+.generalContainer,
+.checkboxContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 27px;
+}
+
+.generalContainer__divInput {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px;
+  width: 100%;
+}
+
+.generalContainer label {
+  color: var(--second-color);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 5px 0px;
+  width: 100%;
+}
+
+.generalContainer__divInput__p {
+  font-size: 12px;
+  padding-left: 27px;
+}
+
+.divInputDescription textarea {
+  padding: 11px 9px 18px 10px;
+}
+
+.generalContainer__select {
+  padding: 10px;
+  box-shadow: 0px 1px 5px rgb(0 0 0 / 15%);
+  border-radius: 5px;
+}
+textarea {
+  font-family: Roboto;
+  resize: none;
+  padding: 12px 20px;
+  border: 1px solid transparent;
+  box-shadow: 0px 1px 5px rgb(0 0 0 / 15%);
+  color: var(--second-color);
+  border-radius: 5px;
+}
+textarea:focus {
+  outline: transparent;
+  border: 1px solid var(--principal-color);
+  box-shadow: 0px 0px 5px 1px rgb(29 190 180 / 80%);
+}
+
+.generalContainer__checkbox {
+  width: unset;
+  height: unset;
+  margin-right: 15px;
+  accent-color: gray;
+}
+
+
+.generalImagesContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+.imagesDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 35%;
+  height: 200px;
+  margin: 20px 10px;
+  padding: 10px 0px;
+  border: 1px solid var(--third-color);
+  border-radius: 8px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+}
+
+.imagesDiv__h4 {
+  padding: 0px 0px 10px;
+  color: var(--second-color);
+}
+
+.imagesDiv img {
+  height: 100px;
+}
+
+.imagesDiv__btn {
+  margin-top: 10px;
+  border-radius: 8px;
+  padding: 2px;
+  background-color: var(--fourth-color);
+}
+
+.imageBtn {
+  align-self: flex-start;
+  padding: 5px;
+  margin-top: 15px;
+  background-color: var(--third-color);
+  color: var(--fourth-color);
+  border-radius: 8px;
+}
+
+.imageBtn:hover {
+  cursor: pointer;
+  background-color: var(--principal-color);
+}
+
+.formError {
+  color: red;
+  padding: 5px 0px 5px 20px;
+}
+
+.divSelectCheckout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+.divSelectCheckout label {
+  width: 100px;
+}
+
+.selectCheckout {
+  max-width: 200px;
+}
+
+#checkout > div:nth-child(2n) {
+  width: 14.5em;
+}
+@media screen and (min-width: 768px) {
+  .formTemplateContainer {
+    padding-bottom: 100px;
+  }
+  .formTemplate__h3 {
+    font-size: 24px;
+    padding-left: 26px;
+  }
+  .formTemplate__h4 {
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 26px;
+  }
+  .generalContainer,
+  .checkboxContainer {
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+  }
+  .checkboxContainer {
+    justify-content: flex-start;
+    padding-left: 50px;
+  }
+  .generalContainer__divInput {
+    width: 45%;
+  }
+  .generalContainer__divInput__p {
+    font-size: 14px;
+  }
+  .divInputDescription {
+    width: 93%;
+  }
+  .divInputDescription textarea {
+    padding: 13px 11px;
+  }
+  .labelCheckbox {
+    width: 30%;
+  }
+  .imagesDiv {
+    width: 20%;
+  }
+  .formErrorContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .formError {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .formTemplateContainer {
+    padding-bottom: 100px;
+  }
+  .generalContainer__divInput {
+    width: 48%;
+  }
+  .divInputDescription {
+    width: 98%;
+  }
+  .labelCheckbox {
+    width: 30%;
+  }
+  .imagesDiv {
+    width: 15%;
+  }
+  .formError {
+    width: 30%;
+  }
+}

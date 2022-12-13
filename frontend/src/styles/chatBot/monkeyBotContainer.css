@@ -1,0 +1,80 @@
+.monkeyBotContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: fixed;
+  bottom: 4.5vh;
+  right: 20px;
+  z-index: 998;
+}
+
+.monkeyBotContainer-div {
+  display: flex;
+  align-items: center;
+}
+
+.monkeyBotContainer-div h4 {
+  display: none;
+}
+
+.monkeyBotContainer:hover > .monkeyBotContainer-div h4 {
+  display: flex;
+  background-color: var(--fourth-color);
+  color: var(--second-color);
+  border-radius: 8px;
+  padding: 2px 5px;
+}
+
+.monkeyBotContainer-img {
+  height: 6vh;
+  max-height: 75px;
+  border-radius: 50%;
+  padding: 2px;
+  background-color: var(--third-color);
+  margin-top: 5px;
+}
+
+.closeButton {
+  border: 1px solid var(--third-color);
+  color: var(--third-color);
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 5px;
+  position: absolute;
+  top: -35px;
+  font-weight: bold;
+  right: 0px;
+}
+
+.monkeyBotContainer-img:hover, .closeButton:hover {
+  cursor: pointer;
+}
+
+.react-chatbot-kit-chat-inner-container {
+  height: 50vh;
+  max-height: 400px;
+}
+
+.react-chatbot-kit-chat-message-container {
+  height: 50vh;
+  max-height: 300px;
+}
+
+.botMenu-p {
+  padding: 10px;
+}
+
+@media (min-width: 768px){
+  .monkeyBotContainer{
+    bottom: 6.5vh;
+  }
+}
+
+@media (min-width: 1366px) {
+  .monkeyBotContainer {
+    bottom: 8vh;
+  }
+  .monkeyBotContainer-img {
+    height: 7.5vh;
+  }
+}

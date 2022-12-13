@@ -1,0 +1,778 @@
+{
+	"id": "12427ebc-feaf-4b30-a48f-313bf9aeb104",
+	"name": "Proyecto-Integrador",
+	"timestamp": "2022-06-28T15:48:24.612Z",
+	"collection_id": "18029196-c3ffe9e0-7c47-45e6-a03a-ea2d7aea99e2",
+	"folder_id": 0,
+	"environment_id": "18029196-36394c45-601a-42ea-9976-85061cca5b7b",
+	"totalPass": 34,
+	"totalFail": 1,
+	"results": [
+		{
+			"id": "56a41fd1-b2fe-4fec-8db1-c575cae328cf",
+			"name": "Login",
+			"url": "http://localhost:8080/usuarios/login",
+			"time": 90,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Successful POST request": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				90
+			],
+			"allTests": [
+				{
+					"Successful POST request": true
+				}
+			]
+		},
+		{
+			"id": "edfe3a99-8c1e-4e5c-ad49-8b22f7138cef",
+			"name": "Create",
+			"url": "http://localhost:8080/categorias",
+			"time": 18,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Successful POST request": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				18
+			],
+			"allTests": [
+				{
+					"Successful POST request": true
+				}
+			]
+		},
+		{
+			"id": "570ea906-fbee-4ace-9d23-764d95320c38",
+			"name": "Find all",
+			"url": "http://localhost:8080/categorias/list",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Categories load must be valid and have a body": true,
+				"Categories schema is valid": true
+			},
+			"testPassFailCounts": {
+				"Categories load must be valid and have a body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Categories schema is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Categories load must be valid and have a body": true,
+					"Categories schema is valid": true
+				}
+			]
+		},
+		{
+			"id": "1f30b7ad-cdc7-4dbf-8583-55787970f6ff",
+			"name": "Create",
+			"url": "http://localhost:8080/productos",
+			"time": 57,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Successful POST request": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				57
+			],
+			"allTests": [
+				{
+					"Successful POST request": true
+				}
+			]
+		},
+		{
+			"id": "3e41aaae-afc4-489d-9202-48108e49e274",
+			"name": "Find By Id",
+			"url": "http://localhost:8080/productos/1",
+			"time": 66,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Products load must be valid and have a body": true,
+				"Products schemas is valid": true
+			},
+			"testPassFailCounts": {
+				"Products load must be valid and have a body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Products schemas is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				66
+			],
+			"allTests": [
+				{
+					"Products load must be valid and have a body": true,
+					"Products schemas is valid": true
+				}
+			]
+		},
+		{
+			"id": "31399010-4cac-4b46-a3a9-998bd0b63fb9",
+			"name": "Find All",
+			"url": "http://localhost:8080/productos/list",
+			"time": 207,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Products load must be valid and have a body": true,
+				"Products schemas is valid": true
+			},
+			"testPassFailCounts": {
+				"Products load must be valid and have a body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Products schemas is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				207
+			],
+			"allTests": [
+				{
+					"Products load must be valid and have a body": true,
+					"Products schemas is valid": true
+				}
+			]
+		},
+		{
+			"id": "9b766239-5b4b-4d55-8af5-663021d4b74f",
+			"name": "Find By City And Between Date",
+			"url": "http://localhost:8080/productos/Salta/2022-01-12/2022-01-12",
+			"time": 130,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Products load must be valid and have a body": true,
+				"Products schemas is valid": true
+			},
+			"testPassFailCounts": {
+				"Products load must be valid and have a body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Products schemas is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				130
+			],
+			"allTests": [
+				{
+					"Products load must be valid and have a body": true,
+					"Products schemas is valid": true
+				}
+			]
+		},
+		{
+			"id": "781f4608-aa87-4b73-8696-e04a3d0a0558",
+			"name": "Find All Random",
+			"url": "http://localhost:8080/productos/page",
+			"time": 198,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Products load must be valid and have a body": true,
+				"Products schemas is valid": true
+			},
+			"testPassFailCounts": {
+				"Products load must be valid and have a body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Products schemas is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				198
+			],
+			"allTests": [
+				{
+					"Products load must be valid and have a body": true,
+					"Products schemas is valid": true
+				}
+			]
+		},
+		{
+			"id": "0e1cfbfe-153a-4b3f-8034-cf9eba4cfb29",
+			"name": "Find By City",
+			"url": "http://localhost:8080/productos/ciudades/C%C3%B3rdoba",
+			"time": 240,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Products load must be valid and have a body": true,
+				"Products schemas is valid": true
+			},
+			"testPassFailCounts": {
+				"Products load must be valid and have a body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Products schemas is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				240
+			],
+			"allTests": [
+				{
+					"Products load must be valid and have a body": true,
+					"Products schemas is valid": true
+				}
+			]
+		},
+		{
+			"id": "e10885f5-2e92-49f7-85a4-a0acf08190e1",
+			"name": "Find All",
+			"url": "http://localhost:8080/imagenes/list",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Imagenes load must be valid and have a body": true,
+				"Imagenes schemas is valid": true
+			},
+			"testPassFailCounts": {
+				"Imagenes load must be valid and have a body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Imagenes schemas is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Imagenes load must be valid and have a body": true,
+					"Imagenes schemas is valid": true
+				}
+			]
+		},
+		{
+			"id": "1ba7aca8-3b2a-453e-87fe-fb1cd3ac5567",
+			"name": "Find All",
+			"url": "http://localhost:8080/usuarios/list",
+			"time": 33,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Usuarios load must be valid and have a body": true,
+				"Usuarios schemas is valid": true
+			},
+			"testPassFailCounts": {
+				"Usuarios load must be valid and have a body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Usuarios schemas is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				33
+			],
+			"allTests": [
+				{
+					"Usuarios load must be valid and have a body": true,
+					"Usuarios schemas is valid": true
+				}
+			]
+		},
+		{
+			"id": "02d1066f-0a87-48c0-a701-52707126566b",
+			"name": "Create",
+			"url": "http://localhost:8080/reservas",
+			"time": 12126,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Successful POST request": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12126
+			],
+			"allTests": [
+				{
+					"Successful POST request": true
+				}
+			]
+		},
+		{
+			"id": "39494e25-1bc9-4f2d-8d0f-e55df1c6058b",
+			"name": "Find All",
+			"url": "http://localhost:8080/reservas/list",
+			"time": 66,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Reservas load must be valid and have a body": true,
+				"Reservas schemas is valid": true
+			},
+			"testPassFailCounts": {
+				"Reservas load must be valid and have a body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Reservas schemas is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				66
+			],
+			"allTests": [
+				{
+					"Reservas load must be valid and have a body": true,
+					"Reservas schemas is valid": true
+				}
+			]
+		},
+		{
+			"id": "3a5199b4-d154-4d01-b785-bee94c9df9bf",
+			"name": "Find By Product",
+			"url": "http://localhost:8080/reservas/productos/1",
+			"time": 21,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Reservas load must be valid and have a body": true,
+				"Reservas schemas is valid": true
+			},
+			"testPassFailCounts": {
+				"Reservas load must be valid and have a body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Reservas schemas is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				21
+			],
+			"allTests": [
+				{
+					"Reservas load must be valid and have a body": true,
+					"Reservas schemas is valid": true
+				}
+			]
+		},
+		{
+			"id": "8a5db579-1626-4942-8e45-aea108d17b73",
+			"name": "Find By User",
+			"url": "http://localhost:8080/reservas/usuarios/1",
+			"time": 36,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Reservas load must be valid and have a body": true,
+				"Reservas schemas is valid": true
+			},
+			"testPassFailCounts": {
+				"Reservas load must be valid and have a body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Reservas schemas is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				36
+			],
+			"allTests": [
+				{
+					"Reservas load must be valid and have a body": true,
+					"Reservas schemas is valid": true
+				}
+			]
+		},
+		{
+			"id": "75d52ee6-24d7-48bf-a406-337f514e878f",
+			"name": "Find By Id",
+			"url": "http://localhost:8080/reservas/38",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Reservas load must be valid and have a body": true,
+				"Reservas schemas is valid": true
+			},
+			"testPassFailCounts": {
+				"Reservas load must be valid and have a body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Reservas schemas is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Reservas load must be valid and have a body": true,
+					"Reservas schemas is valid": true
+				}
+			]
+		},
+		{
+			"id": "768d0ba7-45eb-43a6-b74c-83e7e9e43a65",
+			"name": "Create",
+			"url": "http://localhost:8080/puntuaciones",
+			"time": 34,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Successful POST request": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				34
+			],
+			"allTests": [
+				{
+					"Successful POST request": true
+				}
+			]
+		},
+		{
+			"id": "f724a90c-0927-4a87-9aeb-d9e039818b72",
+			"name": "Find All",
+			"url": "http://localhost:8080/puntuaciones/list",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Puntuaciones load must be valid and have a body": true,
+				"Puntuaciones schemas is valid": true
+			},
+			"testPassFailCounts": {
+				"Puntuaciones load must be valid and have a body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Puntuaciones schemas is valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Puntuaciones load must be valid and have a body": true,
+					"Puntuaciones schemas is valid": true
+				}
+			]
+		},
+		{
+			"id": "aad4775f-bc46-4aae-abb3-7217271b3994",
+			"name": "Update",
+			"url": "http://localhost:8080/productos/update/12",
+			"time": 32,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Successful POST request": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				32
+			],
+			"allTests": [
+				{
+					"Successful POST request": true
+				}
+			]
+		},
+		{
+			"id": "fa3318f2-c374-43a9-be88-089b68e14928",
+			"name": "Update",
+			"url": "http://localhost:8080/categorias/update",
+			"time": 19,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Successful UPDATE request": true
+			},
+			"testPassFailCounts": {
+				"Successful UPDATE request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"Successful UPDATE request": true
+				}
+			]
+		},
+		{
+			"id": "7afddd3d-85f4-44e1-a6c5-cd2919db9c8b",
+			"name": "Delete By Id",
+			"url": "http://localhost:8080/usuarios/44",
+			"time": 21,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Successful DELETE request": false
+			},
+			"testPassFailCounts": {
+				"Successful DELETE request": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				21
+			],
+			"allTests": [
+				{
+					"Successful DELETE request": false
+				}
+			]
+		},
+		{
+			"id": "af7f92b8-4de7-4903-b78c-4bfba1a2ee94",
+			"name": "Delete",
+			"url": "http://localhost:8080/categorias/54",
+			"time": 38,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Successful DELETE request": true
+			},
+			"testPassFailCounts": {
+				"Successful DELETE request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				38
+			],
+			"allTests": [
+				{
+					"Successful DELETE request": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 13473,
+	"collection": {
+		"requests": [
+			{
+				"id": "56a41fd1-b2fe-4fec-8db1-c575cae328cf",
+				"method": "POST"
+			},
+			{
+				"id": "edfe3a99-8c1e-4e5c-ad49-8b22f7138cef",
+				"method": "POST"
+			},
+			{
+				"id": "570ea906-fbee-4ace-9d23-764d95320c38",
+				"method": "GET"
+			},
+			{
+				"id": "1f30b7ad-cdc7-4dbf-8583-55787970f6ff",
+				"method": "POST"
+			},
+			{
+				"id": "3e41aaae-afc4-489d-9202-48108e49e274",
+				"method": "GET"
+			},
+			{
+				"id": "31399010-4cac-4b46-a3a9-998bd0b63fb9",
+				"method": "GET"
+			},
+			{
+				"id": "9b766239-5b4b-4d55-8af5-663021d4b74f",
+				"method": "GET"
+			},
+			{
+				"id": "781f4608-aa87-4b73-8696-e04a3d0a0558",
+				"method": "GET"
+			},
+			{
+				"id": "0e1cfbfe-153a-4b3f-8034-cf9eba4cfb29",
+				"method": "GET"
+			},
+			{
+				"id": "e10885f5-2e92-49f7-85a4-a0acf08190e1",
+				"method": "GET"
+			},
+			{
+				"id": "1ba7aca8-3b2a-453e-87fe-fb1cd3ac5567",
+				"method": "GET"
+			},
+			{
+				"id": "02d1066f-0a87-48c0-a701-52707126566b",
+				"method": "POST"
+			},
+			{
+				"id": "39494e25-1bc9-4f2d-8d0f-e55df1c6058b",
+				"method": "GET"
+			},
+			{
+				"id": "3a5199b4-d154-4d01-b785-bee94c9df9bf",
+				"method": "GET"
+			},
+			{
+				"id": "8a5db579-1626-4942-8e45-aea108d17b73",
+				"method": "GET"
+			},
+			{
+				"id": "75d52ee6-24d7-48bf-a406-337f514e878f",
+				"method": "GET"
+			},
+			{
+				"id": "768d0ba7-45eb-43a6-b74c-83e7e9e43a65",
+				"method": "POST"
+			},
+			{
+				"id": "f724a90c-0927-4a87-9aeb-d9e039818b72",
+				"method": "GET"
+			},
+			{
+				"id": "aad4775f-bc46-4aae-abb3-7217271b3994",
+				"method": "PUT"
+			},
+			{
+				"id": "fa3318f2-c374-43a9-be88-089b68e14928",
+				"method": "PUT"
+			},
+			{
+				"id": "7afddd3d-85f4-44e1-a6c5-cd2919db9c8b",
+				"method": "DELETE"
+			},
+			{
+				"id": "af7f92b8-4de7-4903-b78c-4bfba1a2ee94",
+				"method": "DELETE"
+			}
+		]
+	}
+}

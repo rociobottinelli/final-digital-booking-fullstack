@@ -1,0 +1,362 @@
+.productsCalendar {
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+}
+
+.productsDatePicker__mobile {
+  display: none;
+}
+
+.productsCalendar__calendar {
+  width: 848px;
+}
+
+.productsCalendar__blockCalendar {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 400px;
+}
+
+.react-datepicker {
+  height: 297px;
+}
+
+.react-datepicker__day:hover {
+  background-color: white !important;
+}
+.productsCalendar__reservation {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+  width: 90%;
+}
+
+.productsCalendar__price__button{
+  margin-top: -50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.productsCalendar__reservation p {
+  font-size: 16px;
+  font-weight: 500;
+  padding-bottom: 20px;
+  text-align: justify;
+}
+
+
+.productsCalendar__reservation a{
+  width: 100%;
+}
+
+.productsCalendar__reservation a button {
+  background-color: var(--principal-color);
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  border: 0px;
+}
+
+.productsCalendar__reservation a {
+  color: white;
+}
+
+.productsCalendar__reservation button:hover {
+  background-color: #47aca2;
+  transition: 0.3s;
+}
+
+.productsCalendar__title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #383b58;
+  padding-bottom: 30px;
+  padding: 40px 40px 0 40px;
+}
+
+.react-datepicker {
+  display: flex !important;
+  justify-content: center !important;
+  border-radius: 10px !important;
+  background-color: white !important;
+  box-shadow: 1px 5px 7px rgba(0, 0, 0, 0.25);
+  border: 0 !important;
+  width: 99%;
+}
+
+.react-datepicker__year-read-view--down-arrow,
+.react-datepicker__month-read-view--down-arrow,
+.react-datepicker__month-year-read-view--down-arrow,
+.react-datepicker__navigation-icon::before {
+  border-color: white !important;
+}
+
+.react-datepicker__header {
+  border: 0 !important;
+  background-color: white !important;
+}
+
+.react-datepicker__day-names div {
+  color: #606698 !important;
+  font-size: 15px;
+  font-weight: 600;
+  width: 30px !important;
+}
+
+.react-datepicker__month-container {
+  width: 100%;
+  padding: 10px 40px;
+  height: 280px;
+}
+
+.react-datepicker__current-month {
+  padding-bottom: 15px;
+}
+
+.react-datepicker__navigation {
+  background-color: var(--principal-color) !important;
+  height: 32px !important;
+  width: 32px !important;
+  border-radius: 50px;
+  margin-top: 130px;
+  margin-right: 20px;
+  margin-left: 20px;
+  z-index: 0 !important;
+}
+
+.react-datepicker__navigation-icon::before {
+  height: 13px !important;
+  width: 13px !important;
+  font-weight: 700p !important;
+  left: -7px !important;
+  top: 5px !important;
+}
+
+.react-datepicker__day {
+  width: 30px !important;
+  font-size: 14px;
+}
+
+.react-datepicker > div:nth-child(3) {
+  border-right: 2px solid rgb(205, 201, 201);
+}
+
+.react-datepicker > div:nth-child(5) {
+  border-left: 2px solid rgb(205, 201, 201);
+}
+
+@media (max-width: 1025px) {
+  .productsCalendar__calendar {
+    width: 630px;
+  }
+  .productsCalendar__blockCalendar {
+    justify-content: space-between;
+  }
+  .react-datepicker__navigation {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  .react-datepicker__navigation {
+    background-color: var(--principal-color) !important;
+    height: 32px !important;
+    width: 32px !important;
+    border-radius: 50px;
+    margin-top: 130px;
+    margin-right: 1%;
+    margin-left: 1%;
+  }
+
+  .react-datepicker__navigation-icon::before {
+    height: 13px !important;
+    width: 13px !important;
+    font-weight: 700p !important;
+    left: -7px !important;
+    top: 5px !important;
+  }
+}
+
+.productsDatePicker{
+  display: flex;
+  flex-direction: column;
+}
+
+.datePicker__error{
+  font-weight: 500;
+  color: red;
+  text-align: end;
+  padding-right: 20px;
+  bottom: 0;
+  margin-top: -50px;
+  height: 50px;
+}
+.none{
+  display: none;
+}
+
+.productsDatePicker > div{
+  padding-bottom: 10px;
+  margin-bottom: 50px;
+}
+
+.react-datepicker__day--in-selecting-range:hover{
+  border-radius: 50px !important;
+  background-color: var(--principal-color) !important;
+}
+.react-datepicker__day--in-selecting-range{
+  border-radius: 50px !important;
+  background-color: var(--principal-color) !important;
+}
+.react-datepicker__day--in-range:hover{
+  background-color: var(--principal-color) !important;
+  border-radius: 50px !important;
+}
+.react-datepicker__day--in-range{
+  background-color: var(--principal-color) !important;
+  border-radius: 50px !important;
+}
+
+#products__calendar__price{
+  margin: 0px;
+  justify-content: center;
+}
+
+#products__calendar__details button{
+  margin-bottom: 40px;
+}
+
+@media (max-width: 900px) {
+  #products__calendar__details button{
+    margin-bottom: 0px;
+  }
+  .productsCalendar__price__button{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: -30px;
+  }
+  .productsCalendar__calendar {
+    width: 700px;
+  }
+  .react-datepicker__month-container {
+    padding: 10px 40px;
+  }
+  .productsCalendar__blockCalendar {
+    flex-direction: column;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .productsCalendar__reservation {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background-color: unset;
+    box-shadow: unset;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-left: 20px;
+  }
+  .productsCalendar__reservation p {
+    width: 300px;
+  }
+  .productsCalendar__reservation a button{
+    width: 300px;
+  }
+  .productsCalendar__blockCalendar {
+    padding-top: 20px;
+    height: 100%;
+  }
+  .productsCalendar__reservation a {
+    width: 50%;
+  }
+  .react-datepicker__navigation {
+    background-color: white !important;
+  }
+
+  .react-datepicker__navigation-icon::before {
+    height: 10px !important;
+    width: 10px !important;
+  }
+  .react-datepicker__year-read-view--down-arrow,
+  .react-datepicker__month-read-view--down-arrow,
+  .react-datepicker__month-year-read-view--down-arrow,
+  .react-datepicker__navigation-icon::before {
+    border-color: var(--third-color) !important;
+  }
+}
+
+@media (max-width: 500px) {  
+  .productsCalendar__price__button{
+    flex-direction: column;
+  }
+  .react-datepicker > div:nth-child(5){
+    border-left: none;
+  }
+  .datePicker__error{
+    padding-right:0px;
+    padding-top: 10px;
+    font-size: 15px;
+    margin-top: unset;
+    margin-bottom: -50px;
+    height: 50px;
+  }
+  .react-datepicker{
+    padding: 10px 0px !important;
+    height: 550px !important;
+    flex-direction: column;
+  }
+  .react-datepicker__navigation{
+    margin-top: 65%;
+  }
+  .productsDatePicker__mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+  .productsDatePicker {
+    display: none;
+  }
+  .productsCalendar__reservation{
+    width: unset;
+    margin-left: unset;
+  }
+  .productsCalendar__title {
+    padding-left: 20px;
+  }
+  .productsCalendar__calendar {
+    width: 380px;
+  }
+  .productsCalendar__reservation {
+    flex-direction: column;
+    align-items: center;
+  }
+  .productsCalendar__reservation p{
+    padding-right: 0px;
+  }
+  .productsCalendar__reservation p,
+  .productsCalendar__reservation a{
+    width: 300px;
+  }
+  .react-datepicker {
+    height: 328px;
+  }
+  .react-datepicker > div:nth-child(3) {
+    border-right: none;
+  }
+  .productsCalendar__blockCalendar {
+    height: 100%;
+    padding-right: 10px;
+  }
+}

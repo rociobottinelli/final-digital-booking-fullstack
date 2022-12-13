@@ -1,0 +1,299 @@
+html{
+  box-sizing: border-box;
+  font-style: normal;
+}
+
+*, *::after, ::before{
+  box-sizing: inherit;
+  margin:0;
+  padding:0;
+}
+
+main{
+  background-color: rgb(196,196,196, 0.1);
+  height: 82vh;
+  min-height: 62vh ;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+}
+
+.form{
+  padding: 15px 0;
+  width: 33%;
+}
+
+form{
+  color: var(--second-color);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+form input{
+  background-color: #ffffff;  
+  border: 2px solid transparent; 
+  border-radius: 5px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+  color: #383B58;
+  font-size: 12px;
+  font-weight: 500;
+  height: 40px;
+  margin-top: 7px;
+  outline: none;
+  padding: 10px;
+  width: 100%;
+}
+  
+form input:focus{
+  border: 1px solid var(--principal-color);
+  box-shadow: 0px 0px 5px 1px rgba(29,190,180,0.8);
+  background-color: white;
+}
+
+.error{
+  border: 1px solid rgba(255, 0, 0, 0.524) !important;   
+  box-shadow: 0px 0px 5px 1px rgba(255, 0, 0, 0.524) !important;
+}
+
+.form h2{
+  color: --principal-color ;
+  font-size: 24px;
+  font-weight: 700;
+  height: 40px;
+  text-align: center;
+}
+
+.formSignUp{
+  /* height: 15px; */
+  display: none;
+}
+
+.formSignUp-error{
+  height: 15px;
+}
+.formSignUp-error p{
+  display: block;
+  color: rgba(255, 0, 0, 0.524) !important;
+}
+
+.formSignUp-success p{
+  display: block;
+  color: #063a22 !important;
+}
+
+.full-name{
+  width: 49%;
+}
+
+.label-error{
+  color:rgba(255, 0, 0, 0.524)1 ;
+}
+
+.loadingRingsDiv{
+  margin: 0;
+}
+
+.full-name p{
+  margin-top: 5px;
+  display: none;
+}
+
+.message-error{
+  color: red !important;
+  display: block !important;
+}
+
+.pass{
+  position: relative;
+}
+
+.icon-eye{  
+  color: #607D8B;
+  cursor: pointer;
+  height: 24px;
+  position: absolute;
+  right: 10px;
+  top: 30px;
+  width: 24px;
+}
+
+.btn{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 18px;
+}
+
+.btn-register{
+  border: none;
+  background-color: var(--principal-color);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+  color:#ffffff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  height: 40px; 
+  width: 50%;  
+  cursor:pointer;
+}
+.btn-register:hover{
+  background-color: #18a79d;
+  transition: .3s; 
+}
+
+.register p{
+  color: var(--second-color);
+  font-size: 12px;
+  text-align: center;
+}
+
+.register-input{
+  margin: 15px 0;
+}
+
+.register-input p{
+  display: none;
+  height: 20px;
+  margin-top: 5px;
+  min-height: 20px;
+}
+
+#fullname{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.link{ color: #4285f4; }
+
+.link:hover { color: var(--principal-color) } 
+
+.errorMessageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 33%;  
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.errorMessage {
+  color: #b00020;
+  font-size: 13px;
+}
+
+.successfulMessageContainer{
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  justify-content: center;
+  background-color: var(--principal-color);
+  border-radius: 8px;
+  width: 33%;  
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.successfulMessage{
+  color: #ffffff;
+}
+
+.successIcon{
+  height:20px;
+  margin-right: 10px;;
+}
+
+.warnIcon{
+  height: 20px;
+}
+
+@media screen and (max-width:913px) {
+  .btn{
+    margin-top: 8.3%;
+    margin-bottom: 16px;
+  }
+  .btn-register{
+    width: 100%;
+  }
+  .form{
+    max-height: calc(100vh - 151px);
+    width: 45%;
+  }
+  .full-name{    
+    width: 100%;
+    margin-top: 2.75%;
+  }
+  #fullname{
+    flex-wrap: wrap;
+    margin-top: 10%;
+  }
+  main{
+    height: 84.5vh;
+  }
+  .register-input{
+    margin-top: 21px;
+  }
+ 
+}
+
+@media  screen and (max-width:414px) {
+  .btn{
+    margin-top: 40px;
+    margin-bottom: 7px;
+  }
+  .form{
+    width: 72.5%;  
+  }
+  #fullname{
+    margin-top: 9px;
+  }
+  main{
+    height: 83.4vh;
+  }
+  .register-input{
+    margin-bottom: 0;
+    margin-top: 3%;
+  }  
+}
+
+@media  screen and (max-width:320px) {
+  .btn{
+    margin-top: 10px;
+    margin-bottom: 3px;
+  }
+  .btn-register{
+    height: 30px;
+  }
+  .form h2{
+    font-size: 16px;
+    height: 20px;
+  }
+  form input{
+    height: 30px;
+    margin: 3px 0;
+  }
+  .form{
+    font-size: 9px;
+    max-height: 65vh ;
+    width: 72.5%;
+  }
+  .full-name{    
+    margin: 0;
+  }
+  .icon-eye{  
+    height: 18px;
+    width: 18px;
+  }
+  .register-input{
+    margin: 0;
+  }  
+  #fullname{
+    margin: 0;
+  }
+}

@@ -1,0 +1,20 @@
+.errorContainer {
+    position: relative;
+    padding: 40px;
+    margin-bottom: 50px;
+  }
+  .errorContainer img {
+    border-radius: 15px;
+    height: 100px;
+  }
+  
+  @media (width: 768px) {
+    .errorContainer {
+      padding: 100px 50px;
+    }
+    .errorContainer img {
+      position: inherit;
+      top: calc(50% - 125px);
+      left: calc(50% - 300px);
+    }
+  }

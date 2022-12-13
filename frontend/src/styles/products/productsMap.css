@@ -1,0 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.divStyle {
+    background: white;
+    height: 120px;
+    margin: 0;
+    padding: 0;
+    width: 200px
+}

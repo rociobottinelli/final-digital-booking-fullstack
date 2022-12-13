@@ -1,0 +1,43 @@
+.logoContainer {
+  display: flex;
+  align-items: center;
+  padding: 20px 11px 23px;
+}
+
+.logo {
+  height: 7.5vh;
+  min-height: 50px;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.slogan {
+  color: var(--third-color);
+  font-style: italic;
+  padding-left: 12px;
+}
+
+.slogan p {
+  padding-top: 12px;
+}
+
+@media (min-width: 768px) {
+  .logoContainer {
+    padding: 25px 0px 21px 30px;
+  }
+  .logo {
+    height: 5vh;
+    min-height: 52px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .logoContainer {
+    padding: 15px 0px 6px 40px;
+  }
+  .logo {
+    height: 6.7vh;
+  }
+}

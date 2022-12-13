@@ -1,0 +1,14 @@
+.monkeyBotAvatar, .userAvatar {
+  height: 5vh;
+  max-height: 40px;
+}
+
+.monkeyBotAvatar {
+  margin-right: 5px;
+}
+
+.userAvatar {  
+  margin-left: 10px;
+  background-color: var(--second-color);
+  color: #ffffff;
+}

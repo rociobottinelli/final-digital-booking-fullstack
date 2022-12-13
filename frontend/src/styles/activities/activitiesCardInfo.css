@@ -1,0 +1,245 @@
+.activitiesCardInfo{
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 10px;
+    justify-content: space-around;
+}
+
+.activitiesCardInfo__description{
+    display: flex;
+}
+
+#activitiesCardInfo__margin{
+    margin-bottom: 15px;
+}
+
+#activitiesCardInfo__description__title{
+    margin-left: 40px;
+}
+
+.activitiesCardInfo__blockLeft{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 25%);
+    justify-content: space-around;
+}
+
+.activitiesCardInfo__blockLeft h2 {
+    color: var(--third-color);
+}
+
+
+
+.activitiesCardInfo__blockLeft__details{
+    font-weight: 500;
+}
+.activitiesCardInfo__blockLeft__details div{
+   padding: 10px 5px;
+}
+
+#activitiesCardInfo__blockLeft__text{
+    text-align: justify;
+    color: black;
+}
+
+.activitiesCardInfo__blockLeft__details div span{
+    color: #333;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.activitiesCardInfo__blockRight img{
+    border-radius: 10px;
+    margin: 10px 0px;
+}
+
+.activitiesCardInfo__blockLeft__price{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 30px 0px;
+}
+
+.activitiesCardInfo__blockLeft__price > div{
+    display: flex;
+    flex-direction: column;
+}
+
+.activitiesCardInfo__blockLeft__price > span{
+    width: 100px;
+    font-weight: 500;
+}
+
+.activitiesCardInfo__blockLeft__price div > span{
+    font-weight: 500;
+}
+
+.activitiesCardInfo__blockLeft__price div > div{
+    font-size: 20px;
+    font-weight: 500;
+    width: 150px;
+}
+
+.activitiesCardInfo__blockLeft____button{
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.activitiesCardInfo__blockLeft____button button{
+    background-color: var(--third-color);
+    color: white;
+    border: 0;
+    padding: 10px 18px;
+    border-radius: 28px;
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+}
+
+.activitiesCardInfo__description__text{
+    margin: 0px 20px;
+    padding: 10px 0px;
+    text-align: justify;
+}
+
+.banner__container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.activitiesCardInfo__banner{
+    border: 1px solid #333;
+    align-items: center;
+    display: flex;
+    background-color: white;
+    text-align: center;
+    margin: 20px 0px;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.activitiesCardInfo__banner img{
+    display: none;
+}
+
+.activitiesCardInfo__banner__text{
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.activitiesCardInfo__banner__text h3{
+    color:  var(--principal-color);
+    font-size: 24px;
+    line-height: 29px;
+    padding: 10px 0px;
+}
+.activitiesCardInfo__banner__text p{
+    text-align: center;
+    color: black;
+    line-height: 22px;
+    font-size: 14px;
+    padding: 10px 0px;
+}
+
+.activitiesCardInfo__banner__text button{
+    padding: 14px 24px;
+    border-radius: 24px;
+    background-color: var(--third-color);
+    color: white;
+    border: 0;
+    cursor: pointer;
+}
+
+.activitiesCardInfo__blockLeft__person{
+    font-size: 12px;
+    color: gray;
+    margin-left: 25px;
+}
+
+#activities__home svg{
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+@media (min-width: 700px) {
+    .activitiesCardInfo__blockRight img{
+        width: 750px;
+        height: 500px;
+    }
+    #activities__home svg{
+        margin-top: 10px;
+        margin-right: -16px;
+    }
+    .activitiesCardInfo__banner img{
+        display: unset;
+    }
+    .activitiesCardInfo__banner{
+        padding: 0px;
+    }
+}
+
+@media (min-width: 1025px) {
+    #activities__home svg{
+        margin-top: 10px;
+        margin-right: 18px;
+    }
+    .activitiesCardInfo__description__text{
+        margin: 0px 60px;
+    }
+    #activitiesCardInfo__description__title{
+        margin-left: 10px;
+    }
+    
+    .activitiesCardInfo{
+        flex-direction: unset;
+        margin: 50px 80px 40px 80px;
+    }
+    .activitiesCardInfo__blockLeft{
+        width: 30%;
+    }
+    .activitiesCardInfo__blockLeft__price{
+        margin: 0px;
+    }
+    .activitiesCardInfo__blockLeft__details div{
+        padding: 5px;
+     }
+     .activitiesCardInfo__blockRight{
+        width: unset;
+    }
+    .activitiesCardInfo__blockRight img{
+        display: unset;
+        margin: 0px;
+        width: 750px;
+        height: 500px;
+    }
+    .activitiesCardInfo__banner img{
+        width: unset;
+        border-radius: 0 10px 10px 0;
+    }
+    .activitiesCardInfo__banner__text{
+         align-items: flex-start;
+        width: 40%;
+        margin-left: 50px;
+    }
+    .activitiesCardInfo__banner__text p{
+        align-items: flex-start;
+        line-height: 22px;
+        font-size: 16px;
+        text-align: start;
+        color: black;
+        padding: 10px 0px;
+        
+    }
+    .activitiesCardInfo__banner{
+        width: 90%;
+        margin: 40px 40px;
+        border-radius: 10px;
+    }
+    
+}
